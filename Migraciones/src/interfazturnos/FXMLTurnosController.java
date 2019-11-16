@@ -43,6 +43,18 @@ public class FXMLTurnosController implements Initializable {
     private static Queue<String> colaPublicidad = new LinkedList<>();
     @FXML
     private ImageView publicidadIV;
+    @FXML
+    private Label turno1;
+    @FXML
+    private Label puesto1;
+    @FXML
+    private Label turno2;
+    @FXML
+    private Label turno3;
+    @FXML
+    private Label puesto2;
+    @FXML
+    private Label puesto3;
     
 
     /**
