@@ -9,6 +9,9 @@ import entidades.AgenciaMigratoria;
 import entidades.Ticket;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -64,5 +67,16 @@ public class FXMLTicketController implements Initializable {
         Ticket t= new Ticket(tur);
         AgenciaMigratoria.turnos.offer(t);
         mostrarTurno.setText("Su turno es: "+t.getId());
+        new Thread (() -> {
+            try {
+                Thread.sleep(3000);
+                Platform.runLater(() -> {
+                    FXMLTicketController.this.mostrarTurno.setText("");
+                });
+                
+            }catch (InterruptedException ex) {
+                Logger.getLogger(FXMLTicketController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }).start();
     }
 }

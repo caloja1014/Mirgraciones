@@ -11,10 +11,10 @@ import java.util.Objects;
  *
  * @author nicoleagila
  */
-public class Ticket {
+public final class Ticket {
     private String id;
     //private Migrante usuario;
-    private  int prioridad;
+    private final  int prioridad;
     private static int IDT=0;
     private static int contadorT=1;
     private static int contadorD=1;
@@ -84,15 +84,15 @@ public class Ticket {
     public  void generarTurnoPersona(int prioridad){
         switch (prioridad) {
             case 3:
-                this.id="A"+this.contadorT;
+                this.id="A"+Ticket.contadorT;
                 
                 break;
             case 2:
-                this.id="B"+this.contadorD;
+                this.id="B"+Ticket.contadorD;
                 
                 break;
             case 1:
-                this.id="C"+this.contadorU;
+                this.id="C"+Ticket.contadorU;
                 
                 break;
         }
