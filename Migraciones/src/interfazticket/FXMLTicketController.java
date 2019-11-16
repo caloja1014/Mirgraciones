@@ -5,8 +5,11 @@
  */
 package interfazticket;
 
+import entidades.AgenciaMigratoria;
+import entidades.Ticket;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -29,6 +32,8 @@ public class FXMLTicketController implements Initializable {
     private Button btnEspeciales;
     @FXML
     private Button btnNormal;
+    @FXML
+    private Label mostrarTurno;
 
     /**
      * Initializes the controller class.
@@ -39,5 +44,25 @@ public class FXMLTicketController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
+
+    @FXML
+    private void turnoD(ActionEvent event) {
+        asignarTurno(2);
+        
+    }
+
+    @FXML
+    private void turnoT(ActionEvent event) {
+        asignarTurno(3);
+    }
+
+    @FXML
+    private void turnoU(ActionEvent event) {
+        asignarTurno(1);
+    }
+    private void asignarTurno(int tur){
+        Ticket t= new Ticket(tur);
+        AgenciaMigratoria.turnos.offer(t);
+        mostrarTurno.setText("Su turno es: "+t.getId());
+    }
 }

@@ -21,9 +21,18 @@ public class Migrante {
     private String pais_res;
     private String clase_mig;
 
-    public Migrante(TipoPersona tipo) {
-        this.tipo=tipo;
+    public Migrante(String cedula, TipoPersona tipo, String sexo, int anio_nac, int edad, String nacionalidad, String pais_res, String clase_mig) {
+        this.cedula = cedula;
+        this.tipo = tipo;
+        this.sexo = sexo;
+        this.anio_nac = anio_nac;
+        this.edad = edad;
+        this.nacionalidad = nacionalidad;
+        this.pais_res = pais_res;
+        this.clase_mig = clase_mig;
     }
+
+    
     
     public String getCedula() {
         return cedula;

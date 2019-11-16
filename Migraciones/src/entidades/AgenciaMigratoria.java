@@ -21,8 +21,8 @@ import java.util.logging.Logger;
  * @author nicoleagila
  */
 public class AgenciaMigratoria {
-    PriorityQueue<Ticket> turnos = new PriorityQueue<>((Ticket t1, Ticket t2) -> (t1.getPrioridad()-t2.getPrioridad()));
-    ArrayList<Registro> registros;
+    public static PriorityQueue<Ticket> turnos = new PriorityQueue<>((Ticket t1, Ticket t2) -> (t2.getPrioridad()-t1.getPrioridad()));
+    static ArrayList<Registro> registros;
 
 public void serializar(){
         

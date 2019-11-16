@@ -11,28 +11,28 @@ package entidades;
  */
 public class Ticket {
     private int id;
-    private Migrante usuario;
+    //private Migrante usuario;
     private int prioridad;
     private static int IDT=0;
 
-    public Ticket(Migrante usuario) {
+    public Ticket(int prioridad) {
         this.id=IDT++;
-        this.usuario = usuario;
-        this.prioridad=setPrioridad();
+        //this.usuario = usuario;
+        this.prioridad=prioridad;
     }
 
     public int getId() {
         return id;
     }
 
-    public Migrante getUsuario() {
+   /* public Migrante getUsuario() {
         return usuario;
-    }
+    }*/
 
     public int getPrioridad() {
         return prioridad;
     }
-
+/*
     public void setUsuario(Migrante usuario) {
         this.usuario = usuario;
     }
@@ -47,7 +47,7 @@ public class Ticket {
         }
         return 0;
     }
-
+*/
     @Override
     public int hashCode() {
         int hash = 7;
