@@ -5,34 +5,40 @@
  */
 package entidades;
 
+import java.util.Objects;
+
 /**
  *
  * @author nicoleagila
  */
-public class Ticket {
-    private int id;
-    private Migrante usuario;
-    private int prioridad;
+public final class Ticket {
+    private String id;
+    //private Migrante usuario;
+    private final  int prioridad;
     private static int IDT=0;
+    private static int contadorT=1;
+    private static int contadorD=1;
+    private static int contadorU=1;
 
-    public Ticket(Migrante usuario) {
-        this.id=IDT++;
-        this.usuario = usuario;
-        this.prioridad=setPrioridad();
+    public Ticket(int prioridad) {
+        ++IDT;
+        generarTurnoPersona(prioridad);
+        //this.usuario = usuario;
+        this.prioridad=prioridad;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public Migrante getUsuario() {
+   /* public Migrante getUsuario() {
         return usuario;
-    }
+    }*/
 
     public int getPrioridad() {
         return prioridad;
     }
-
+/*
     public void setUsuario(Migrante usuario) {
         this.usuario = usuario;
     }
@@ -47,27 +53,47 @@ public class Ticket {
         }
         return 0;
     }
+*/
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + this.id;
+        hash = 59 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null || !(obj instanceof Ticket)){
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Ticket other = (Ticket) obj;
-        if (this.id != other.id) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
+        final Ticket other = (Ticket) obj;
+        return Objects.equals(this.id, other.id);
     }
+
     
-    
+    public  void generarTurnoPersona(int prioridad){
+        switch (prioridad) {
+            case 3:
+                this.id="A"+Ticket.contadorT;
+                ++contadorT; 
+                break;
+            case 2:
+                this.id="B"+Ticket.contadorD;
+                ++contadorD;
+                break;
+            case 1:
+                this.id="C"+Ticket.contadorU;
+                ++contadorU;
+                break;
+        }
+    }
     
     
 }

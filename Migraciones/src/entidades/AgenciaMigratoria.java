@@ -5,14 +5,49 @@
  */
 package entidades;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author nicoleagila
  */
 public class AgenciaMigratoria {
-    PriorityQueue<Ticket> turnos = new PriorityQueue<>((Ticket t1, Ticket t2) -> (t1.getPrioridad()-t2.getPrioridad()));
-    ArrayList<Registro> registros;
+    public static PriorityQueue<Ticket> turnos = new PriorityQueue<>((Ticket t1, Ticket t2) -> (t2.getPrioridad()-t1.getPrioridad()));
+    static ArrayList<Registro> registros;
+
+public static void serializar(){
+        
+        try (FileOutputStream fileOut = new FileOutputStream("registros.ser")) {
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                out.writeObject(registros);
+                out.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AgenciaMigratoria.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(AgenciaMigratoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public static void desSeralizar(){
+        try{
+        FileInputStream fileIn = new FileInputStream("registros.ser");
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        registros = (ArrayList) in.readObject();
+        in.close();
+        fileIn.close();
+        }catch (FileNotFoundException ex) {
+            Logger.getLogger(AgenciaMigratoria.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | IOException ex) {
+            Logger.getLogger(AgenciaMigratoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

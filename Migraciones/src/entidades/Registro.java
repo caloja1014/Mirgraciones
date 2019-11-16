@@ -5,13 +5,14 @@
  */
 package entidades;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author nicoleagila
  */
-public class Registro {
+public class Registro implements Serializable{
     private Migrante migrante;
     private TipoMov tip_movi;
     private String via_transp;
