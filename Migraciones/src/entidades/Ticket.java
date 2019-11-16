@@ -16,9 +16,9 @@ public class Ticket {
     //private Migrante usuario;
     private  int prioridad;
     private static int IDT=0;
-    private int contadorT=1;
-    private int contadorD=1;
-    private int contadorU=1;
+    private static int contadorT=1;
+    private static int contadorD=1;
+    private static int contadorU=1;
 
     public Ticket(int prioridad) {
         ++IDT;
@@ -77,17 +77,14 @@ public class Ticket {
             return false;
         }
         final Ticket other = (Ticket) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.id, other.id);
     }
 
     
     public  void generarTurnoPersona(int prioridad){
         switch (prioridad) {
             case 3:
-                this.id=String.valueOf(this.contadorT);
+                this.id="A"+this.contadorT;
                 
                 break;
             case 2:
