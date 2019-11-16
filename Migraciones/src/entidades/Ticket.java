@@ -5,23 +5,32 @@
  */
 package entidades;
 
+import java.util.Objects;
+
 /**
  *
  * @author nicoleagila
  */
 public class Ticket {
-    private int id;
+    private String id;
     //private Migrante usuario;
-    private int prioridad;
+    private  int prioridad;
     private static int IDT=0;
+    private int contadorT=1;
+    private int contadorD=1;
+    private int contadorU=1;
 
     public Ticket(int prioridad) {
-        this.id=IDT++;
+        ++IDT;
+        generarTurnoPersona(prioridad);
+        ++contadorT;
+        ++contadorD;
+        ++contadorU;
         //this.usuario = usuario;
         this.prioridad=prioridad;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -48,26 +57,49 @@ public class Ticket {
         return 0;
     }
 */
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + this.id;
+        hash = 59 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null || !(obj instanceof Ticket)){
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Ticket other = (Ticket) obj;
-        if (this.id != other.id) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Ticket other = (Ticket) obj;
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
+
     
-    
+    public  void generarTurnoPersona(int prioridad){
+        switch (prioridad) {
+            case 3:
+                this.id=String.valueOf(this.contadorT);
+                
+                break;
+            case 2:
+                this.id="B"+this.contadorD;
+                
+                break;
+            case 1:
+                this.id="C"+this.contadorU;
+                
+                break;
+        }
+    }
     
     
 }
