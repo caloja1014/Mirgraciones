@@ -23,9 +23,6 @@ public final class Ticket {
     public Ticket(int prioridad) {
         ++IDT;
         generarTurnoPersona(prioridad);
-        ++contadorT;
-        ++contadorD;
-        ++contadorU;
         //this.usuario = usuario;
         this.prioridad=prioridad;
     }
@@ -85,15 +82,15 @@ public final class Ticket {
         switch (prioridad) {
             case 3:
                 this.id="A"+Ticket.contadorT;
-                
+                ++contadorT; 
                 break;
             case 2:
                 this.id="B"+Ticket.contadorD;
-                
+                ++contadorD;
                 break;
             case 1:
                 this.id="C"+Ticket.contadorU;
-                
+                ++contadorU;
                 break;
         }
     }

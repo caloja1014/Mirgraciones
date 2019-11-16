@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazpuesto.FXMLPuestoController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="interfazpuesto.FXMLPuestoController">
+   <children>
+      <Label id="labelRegistro" fx:id="labelRegistro" alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="14.0" prefHeight="37.0" prefWidth="97.0" text="REGISTRO" textAlignment="CENTER" />
+      <Button id="labelMod" fx:id="btnMod" layoutX="61.0" layoutY="117.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="97.0" text="Modificar" />
+      <Button id="labelEli" fx:id="btnEli" layoutX="61.0" layoutY="185.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="97.0" text="Eliminar" />
+      <Button id="labelRe" fx:id="btnRe" layoutX="61.0" layoutY="247.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="97.0" text="Registrar" />
+      <ImageView id="imagenCor" fx:id="imgCor" fitHeight="178.0" fitWidth="319.0" layoutX="252.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" />
+      <Button id="labelOcupado" fx:id="btnOcupado" layoutX="349.0" layoutY="312.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="125.0" text="Ocupado" />
+   </children>
 </AnchorPane>

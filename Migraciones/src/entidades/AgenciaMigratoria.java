@@ -24,7 +24,7 @@ public class AgenciaMigratoria {
     public static PriorityQueue<Ticket> turnos = new PriorityQueue<>((Ticket t1, Ticket t2) -> (t2.getPrioridad()-t1.getPrioridad()));
     static ArrayList<Registro> registros;
 
-public void serializar(){
+public static void serializar(){
         
         try (FileOutputStream fileOut = new FileOutputStream("registros.ser")) {
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -36,7 +36,7 @@ public void serializar(){
             Logger.getLogger(AgenciaMigratoria.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void desSeralizar(){
+    public static void desSeralizar(){
         try{
         FileInputStream fileIn = new FileInputStream("registros.ser");
         ObjectInputStream in = new ObjectInputStream(fileIn);
