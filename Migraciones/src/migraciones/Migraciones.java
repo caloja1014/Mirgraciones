@@ -5,17 +5,59 @@
  */
 package migraciones;
 
+import interfazturnos.FXMLTurnosController;
+import java.io.IOException;
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
+import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+
+
 /**
  *
  * @author nicoleagila
  */
-public class Migraciones {
+public class Migraciones extends Application {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    @Override
+    public void start(Stage stage) throws IOException  {
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/interfazticket/FXMLTicket.fxml"));
+        Parent root2 = FXMLLoader.load(getClass().getResource("/interfazturnos/FXMLTurnos.fxml"));
+        
+        Scene scene = new Scene(root);
+        Scene scene2 = new Scene(root2);
+        Stage stage2 = new Stage();
+        
+        stage2.setOnHiding(new EventHandler<WindowEvent>() {
+
+         @Override
+         public void handle(WindowEvent event) {
+             Platform.runLater(new Runnable() {
+
+                 @Override
+                 public void run() {
+                     FXMLTurnosController.setLoop();
+;
+                 }
+             });
+         }
+     });
+        
+        stage2.setScene(scene2);
+        stage.setScene(scene);
+        stage.show();  
+        stage2.show();
     }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     
 }
