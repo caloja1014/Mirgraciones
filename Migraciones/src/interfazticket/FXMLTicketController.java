@@ -5,8 +5,8 @@
  */
 package interfazticket;
 
-import entidades.AgenciaMigratoria;
-import entidades.Ticket;
+import modelo.AgenciaMigratoria;
+import modelo.Ticket;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;

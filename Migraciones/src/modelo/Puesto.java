@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidades;
+package modelo;
 
 /**
  *
  * @author nicoleagila
  */
 public class Puesto {
+    private Empleado empleado;
     private int id;
     private boolean disponible;
     private static int IDP=0;
@@ -31,6 +32,14 @@ public class Puesto {
         return id;
     }
 
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+    
     public boolean isDisponible() {
         return disponible;
     }
