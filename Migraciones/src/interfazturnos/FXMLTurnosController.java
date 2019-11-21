@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -27,6 +28,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import modelo.AgenciaMigratoria;
+import modelo.Ticket;
 
 
 
@@ -47,18 +50,42 @@ public class FXMLTurnosController implements Initializable {
     @FXML
     private ImageView publicidadIV;
     @FXML
-    private Label turno1;
-    @FXML
     private Label puesto1;
-    @FXML
-    private Label turno2;
-    @FXML
-    private Label turno3;
     @FXML
     private Label puesto2;
     @FXML
     private Label puesto3;
+    @FXML
+    private Label turnoOcupado;
+    @FXML
+    private Label estado1;
+    @FXML
+    private Label estado2;
+    @FXML
+    private Label estado3;
+    @FXML
+    private Label turnoOcupado1;
+    @FXML
+    private Label turnoOcupado2;
+    @FXML
+    private Label turnoOcupado3;
+    @FXML
+    private Label lblTurnos;
+    @FXML
+    private Label label1;
+    @FXML
+    private Label label2;
+    @FXML
+    private Label label3;
+    @FXML
+    private Label label4;
+    @FXML
+    private Label label5;
+    @FXML
+    private Label label6;
     
+    private final PriorityQueue<Ticket> tikects=AgenciaMigratoria.turnos;
+
 
     /**
      * Initializes the controller class.
