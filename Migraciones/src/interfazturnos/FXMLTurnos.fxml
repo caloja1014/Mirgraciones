@@ -21,12 +21,13 @@
          <children>
             <Pane fx:id="publicidad" prefHeight="418.0" prefWidth="330.0" HBox.hgrow="ALWAYS">
                <children>
-                  <ImageView fx:id="publicidadIV" fitHeight="418.0" fitWidth="465.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="publicidadIV" fitHeight="395.0" fitWidth="415.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" />
                </children></Pane>
             <GridPane fx:id="turnoPuesto" HBox.hgrow="ALWAYS">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" prefHeight="53.599999046325685" valignment="CENTER" vgrow="NEVER" />
@@ -35,48 +36,39 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label alignment="CENTER" prefHeight="138.0" prefWidth="245.0" text="Turno">
+                  <Label alignment="CENTER" prefHeight="138.0" prefWidth="245.0" text="Puesto">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="128.0" prefWidth="266.0" text="Puesto" GridPane.columnIndex="1">
+                  <Label alignment="CENTER" prefHeight="128.0" prefWidth="266.0" text="Estado" GridPane.columnIndex="1">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label fx:id="turno1" GridPane.rowIndex="1">
+                  <Label fx:id="turnoOcupado" alignment="CENTER" prefHeight="128.0" prefWidth="266.0" text="Turno" GridPane.columnIndex="2">
                      <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="puesto1" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="turno2" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="turno3" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="puesto2" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="puesto3" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="24.0" />
+                        <Font size="36.0" />
                      </font>
                   </Label>
                </children>
             </GridPane>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="lblTurnos" alignment="CENTER" prefHeight="68.0" prefWidth="96.0" text="TURNOS">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="label1" alignment="CENTER" contentDisplay="CENTER" prefHeight="79.0" prefWidth="104.0" />
+            <Label fx:id="label2" alignment="CENTER" prefHeight="80.0" prefWidth="101.0" />
+            <Label fx:id="label3" alignment="CENTER" prefHeight="78.0" prefWidth="82.0" />
+            <Label fx:id="label4" alignment="CENTER" prefHeight="77.0" prefWidth="102.0" />
+            <Label fx:id="label5" alignment="CENTER" prefHeight="69.0" prefWidth="101.0" />
+            <Label fx:id="label6" alignment="CENTER" prefHeight="79.0" prefWidth="95.0" />
+            <Label fx:id="label6" alignment="CENTER" prefHeight="87.0" prefWidth="119.0" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">

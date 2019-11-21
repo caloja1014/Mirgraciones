@@ -94,6 +94,11 @@ public final class Ticket {
                 break;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Ticket{" + "id=" + id + ", prioridad=" + prioridad + '}';
+    }
     
     
 }

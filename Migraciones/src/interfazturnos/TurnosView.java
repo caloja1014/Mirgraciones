@@ -3,24 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfazticket;
+package interfazturnos;
 
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import modelo.AgenciaMigratoria;
 
 /**
  *
  * @author CLOJA
  */
-public class TickectView extends Application {
-
+public class TurnosView extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLTicket.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLTurnos.fxml"));
         
         Scene scene = new Scene(root);
         
@@ -29,6 +28,5 @@ public class TickectView extends Application {
     }
     public static void main(String[] args) {
         launch(args);
-    }
-    
+    }    
 }
