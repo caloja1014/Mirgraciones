@@ -5,10 +5,13 @@
  */
 package interfazturnos;
 
+import cicularlinkedlist.CircularLinkedList;
+import cicularlinkedlist.List;
 import interfazticket.FXMLTicketController;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.ResourceBundle;
@@ -40,7 +43,7 @@ public class FXMLTurnosController implements Initializable {
     private Pane publicidad;
     @FXML
     private GridPane turnoPuesto;
-    private static Queue<String> colaPublicidad = new LinkedList<>();
+    private static List<String> listaPublicidad;
     @FXML
     private ImageView publicidadIV;
     @FXML
@@ -65,33 +68,33 @@ public class FXMLTurnosController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            colaPublicidad.addAll(leer());
+            listaPublicidad=leer();
             //publicidadLoop();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FXMLTurnosController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(colaPublicidad);
+        System.out.println(listaPublicidad);
 
         publicidadLoop();
     }
     
     private void publicidadLoop(){
-            
+            CircularLinkedList<String> p=(CircularLinkedList) listaPublicidad;
+            Iterator<String> it= p.iterator();
             new Thread (() -> {
             try {
-                while(!colaPublicidad.isEmpty()){
+                while(it.hasNext()&&loop){
                     if(loop == false){
                         break;
                     }
-                    String i = colaPublicidad.poll();
-                    System.out.println(i);
-                    colaPublicidad.offer(i);
+                    String i = it.next();
+                 
                     
                     Platform.runLater(() -> {
                          publicidadIV.setImage(new Image(new File(i).toURI().toString()));
 
                     });
-                    Thread.sleep(5000);
+                    Thread.sleep(3000);
 
                 }
             }catch (InterruptedException ex) {
@@ -100,9 +103,9 @@ public class FXMLTurnosController implements Initializable {
         }).start();
     }
     
-    public static LinkedList<String> leer() throws FileNotFoundException{
+    public static List<String> leer() throws FileNotFoundException{
         
-        LinkedList<String> imagenes = new LinkedList<>();
+        List<String> imagenes = new CircularLinkedList<>();
         
         File file=new File("src/publicidad/imagenes.txt");
         Scanner sc=new Scanner(file);
@@ -110,7 +113,7 @@ public class FXMLTurnosController implements Initializable {
             
             String line = "src/publicidad/"+sc.nextLine();
             System.out.println(line);
-            imagenes.add(line);
+            imagenes.addLast(line);
         }
         return imagenes;
     }
