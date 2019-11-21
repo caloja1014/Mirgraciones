@@ -29,10 +29,16 @@ public class Migraciones extends Application {
         
         Parent root = FXMLLoader.load(getClass().getResource("/interfazticket/FXMLTicket.fxml"));
         Parent root2 = FXMLLoader.load(getClass().getResource("/interfazturnos/FXMLTurnos.fxml"));
+        Parent root3 = FXMLLoader.load(getClass().getResource("/interfazlogin/FXMLLogin.fxml"));
         
         Scene scene = new Scene(root);
         Scene scene2 = new Scene(root2);
+        Scene scene3 = new Scene(root3);
+        
+        
         Stage stage2 = new Stage();
+        Stage stage3 = new Stage();
+        
         
         stage2.setOnHiding(new EventHandler<WindowEvent>() {
 
@@ -48,11 +54,12 @@ public class Migraciones extends Application {
              });
          }
      });
-        
+        stage3.setScene(scene3);
         stage2.setScene(scene2);
         stage.setScene(scene);
         stage.show();  
         stage2.show();
+        stage3.show();
     }
 
     public static void main(String[] args) {
