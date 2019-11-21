@@ -81,17 +81,7 @@ public class FXMLTurnosController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         try {
-            tickets.add(new Ticket(3));
-            tickets.add(new Ticket(2));
-            tickets.add(new Ticket(1));
-            tickets.add(new Ticket(2));
-            tickets.add(new Ticket(3));
-            tickets.add(new Ticket(2));
-            
-            crearLabelsPuestos(4);
-            llenarPuestos();           
             listaPublicidad=leer();
-            //publicidadLoop();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FXMLTurnosController.class.getName()).log(Level.SEVERE, null, ex);
         }
