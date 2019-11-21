@@ -64,8 +64,6 @@ public class FXMLTicketController implements Initializable {
         asignarTurno(1);
     }
     private void asignarTurno(int tur){
-        System.out.println(AgenciaMigratoria.turnos);
-
         Ticket t= new Ticket(tur);
         AgenciaMigratoria.turnos.offer(t);
         mostrarTurno.setText("Su turno es: "+t.getId());

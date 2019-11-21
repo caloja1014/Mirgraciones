@@ -51,39 +51,6 @@
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label fx:id="puesto1" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="estado1" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="puesto2" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="puesto3" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="estado2" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="estado3" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="turnoOcupado1" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Label fx:id="turnoOcupado2" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Label fx:id="turnoOcupado3" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                </children>
             </GridPane>
          </children>

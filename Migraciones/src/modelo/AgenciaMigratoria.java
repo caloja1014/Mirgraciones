@@ -23,9 +23,10 @@ import java.util.logging.Logger;
 public class AgenciaMigratoria {
     public static PriorityQueue<Ticket> turnos = new PriorityQueue<>((Ticket t1, Ticket t2) -> (t2.getPrioridad()-t1.getPrioridad()));
     static ArrayList<Registro> registros;
-
+    public static ArrayList<Puesto> puestos=new ArrayList<>();
+    
 public static void serializar(){
-        
+    
         try (FileOutputStream fileOut = new FileOutputStream("registros.ser")) {
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
                 out.writeObject(registros);

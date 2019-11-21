@@ -11,8 +11,11 @@ import interfazticket.FXMLTicketController;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.ResourceBundle;
@@ -50,25 +53,7 @@ public class FXMLTurnosController implements Initializable {
     @FXML
     private ImageView publicidadIV;
     @FXML
-    private Label puesto1;
-    @FXML
-    private Label puesto2;
-    @FXML
-    private Label puesto3;
-    @FXML
     private Label turnoOcupado;
-    @FXML
-    private Label estado1;
-    @FXML
-    private Label estado2;
-    @FXML
-    private Label estado3;
-    @FXML
-    private Label turnoOcupado1;
-    @FXML
-    private Label turnoOcupado2;
-    @FXML
-    private Label turnoOcupado3;
     @FXML
     private Label lblTurnos;
     @FXML
@@ -84,9 +69,9 @@ public class FXMLTurnosController implements Initializable {
     @FXML
     private Label label6;
     
-    private final PriorityQueue<Ticket> tikects=AgenciaMigratoria.turnos;
-
-
+    private static final PriorityQueue<Ticket> tickets=AgenciaMigratoria.turnos;
+    private static final PriorityQueue<Ticket> turnosEspera=new PriorityQueue<>((Ticket t1, Ticket t2) -> (t2.getPrioridad()-t1.getPrioridad()));
+    private static  final HashMap<Integer,Label>puestosTurnos=new HashMap<>();
     /**
      * Initializes the controller class.
      */
@@ -94,7 +79,17 @@ public class FXMLTurnosController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         try {
+            tickets.add(new Ticket(3));
+            tickets.add(new Ticket(2));
+            tickets.add(new Ticket(1));
+            tickets.add(new Ticket(2));
+            tickets.add(new Ticket(3));
+            tickets.add(new Ticket(2));
+            
+            crearLabelsPuestos(4);
+            llenarPuestos();           
             listaPublicidad=leer();
             //publicidadLoop();
         } catch (FileNotFoundException ex) {
@@ -109,25 +104,25 @@ public class FXMLTurnosController implements Initializable {
             CircularLinkedList<String> p=(CircularLinkedList) listaPublicidad;
             Iterator<String> it= p.iterator();
             new Thread (() -> {
-            try {
-                while(it.hasNext()&&loop){
-                    if(loop == false){
-                        break;
+                try {
+                    while(it.hasNext()&&loop){
+                        if(loop == false){
+                            break;
+                        }
+                        String i = it.next();
+                        
+                        
+                        Platform.runLater(() -> {
+                            publicidadIV.setImage(new Image(new File(i).toURI().toString()));
+                            
+                        });
+                        Thread.sleep(3000);
+                        
                     }
-                    String i = it.next();
-                 
-                    
-                    Platform.runLater(() -> {
-                         publicidadIV.setImage(new Image(new File(i).toURI().toString()));
-
-                    });
-                    Thread.sleep(3000);
-
+                }catch (InterruptedException ex) {
+                    Logger.getLogger(FXMLTicketController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }catch (InterruptedException ex) {
-                Logger.getLogger(FXMLTicketController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }).start();
+            }).start();
     }
     
     public static List<String> leer() throws FileNotFoundException{
@@ -148,6 +143,30 @@ public class FXMLTurnosController implements Initializable {
     public static void setLoop(){
         loop = false;
     }
-
-
+    
+    public static void actualizarPuesto(Integer pos){
+        Ticket t =tickets.poll();
+        Label puesto=puestosTurnos.get(pos);
+        puesto.setText(t.getId());
+    }
+        
+    
+    public void crearLabelsPuestos(int i){
+        int h=1;
+        for(int j=0;j<i;j++){
+            Label l=new Label(String.valueOf(i));
+            puestosTurnos.put(h, l);
+            turnoPuesto.add(l, 0, h);
+            h++;
+        } 
+    }
+    public void llenarPuestos(){
+        if(!tickets.isEmpty()){
+            for(Map.Entry<Integer,Label> e: puestosTurnos.entrySet()){
+                Label l=e.getValue();
+                Ticket t= tickets.poll();
+                l.setText(t.getId());
+            }
+        }
+    }
 }

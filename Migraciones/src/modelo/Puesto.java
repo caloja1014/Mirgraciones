@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package modelo;
-
+import interfazturnos.FXMLTurnosController;
 /**
  *
  * @author nicoleagila
@@ -25,6 +25,7 @@ public class Puesto {
     }
 
     public void setDisponible(boolean disponible) {
+        if(disponible) FXMLTurnosController.actualizarPuesto(id);
         this.disponible = disponible;
     }
 
