@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.BottomNavigation?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="view_puesto" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazadmin.FXMLAddPuestoController">
+   <children>
+      <Label fx:id="lbl_titulo" layoutX="104.0" layoutY="44.0" prefHeight="90.0" prefWidth="359.0" text="GESTOR DE PUESTOS DE ATENCION" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="img_puesto" fitHeight="120.0" fitWidth="112.0" layoutX="485.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/puesto.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bt_add" fitHeight="90.0" fitWidth="88.0" layoutX="497.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/agregar.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bt_back" fitHeight="45.0" fitWidth="60.0" layoutX="21.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/volver.png" />
+         </image>
+      </ImageView>
+      <FlowPane fx:id="pane_puestos" layoutX="66.0" layoutY="145.0" prefHeight="304.0" prefWidth="403.0">
+         <children>
+            <BottomNavigation />
+         </children></FlowPane>
+   </children>
+</AnchorPane>

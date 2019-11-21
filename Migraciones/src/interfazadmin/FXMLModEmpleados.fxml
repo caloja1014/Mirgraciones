@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="view_editemp" prefHeight="307.0" prefWidth="379.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazadmin.FXMLModEmpleadosController">
+   <children>
+      <Label fx:id="lbl_nombre" layoutX="97.0" layoutY="33.0">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_info" layoutX="33.0" layoutY="89.0" prefHeight="50.0" prefWidth="314.0" text="Modifique el estado de disponibilidad del empleado" wrapText="true" />
+      <Label fx:id="lbl_estado" layoutX="36.0" layoutY="154.0" prefHeight="45.0" prefWidth="138.0" text="Estado de trabajo" wrapText="true" />
+      <Label fx:id="lbl_puesto" layoutX="32.0" layoutY="208.0" prefHeight="67.0" prefWidth="131.0" text="Puesto de trabajo asignado" wrapText="true" />
+      <TextField fx:id="txt_puesto" layoutX="170.0" layoutY="219.0" prefHeight="45.0" prefWidth="56.0" />
+      <ImageView fx:id="bt_editar" fitHeight="58.0" fitWidth="62.0" layoutX="276.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/edita.png" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="cb_estados" layoutX="167.0" layoutY="163.0" prefHeight="28.0" prefWidth="162.0" />
+   </children>
+</AnchorPane>

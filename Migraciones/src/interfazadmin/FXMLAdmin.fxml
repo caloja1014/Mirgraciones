@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.BottomNavigation?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="view_control" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazadmin.FXMLAdminController">
+   <children>
+      <Label fx:id="lbl_titulo" layoutX="68.0" layoutY="43.0" prefHeight="90.0" prefWidth="500.0" text="SISTEMA DE CONTROL DEL PERSONAL" textAlignment="CENTER">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_emp" layoutX="127.0" layoutY="139.0" prefHeight="79.0" prefWidth="115.0" text="Empleados" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_puesto" layoutX="361.0" layoutY="139.0" prefHeight="79.0" prefWidth="187.0" text="Puestos de atencion" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="img_emp" fitHeight="180.0" fitWidth="161.0" layoutX="116.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/empleado.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img_puesto" fitHeight="196.0" fitWidth="203.0" layoutX="357.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/puesto.png" />
+         </image>
+      </ImageView>
+      <BottomNavigation layoutX="150.0" layoutY="418.0" />
+   </children>
+</AnchorPane>
