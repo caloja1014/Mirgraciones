@@ -3,18 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/cicularlinkedlist/Node.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/interfazticket/FXMLTicketController.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/interfazturnos/TurnosView.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/modelo/Ticket.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/publicidad/imagenes.txt</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/interfazpuesto/FXMLPuestoController.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/interfazturnos/FXMLTurnosController.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/cicularlinkedlist/CircularLinkedList.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/modelo/AgenciaMigratoria.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/modelo/Puesto.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/interfazticket/TickectView.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/cicularlinkedlist/List.java</file>
+            <file>file:/C:/Users/walte/Documents/NetBeansProjects/ProyectoEstructuras/proyecto1p_estructuras/Migraciones/src/interfazlogin/FXMLLoginController.java</file>
+            <file>file:/C:/Users/walte/Documents/NetBeansProjects/ProyectoEstructuras/proyecto1p_estructuras/Migraciones/src/interfazturnos/FXMLTurnosController.java</file>
+            <file>file:/C:/Users/walte/Documents/NetBeansProjects/ProyectoEstructuras/proyecto1p_estructuras/Migraciones/src/interfazturnos/TurnosView.java</file>
+            <file>file:/C:/Users/walte/Documents/NetBeansProjects/ProyectoEstructuras/proyecto1p_estructuras/Migraciones/src/interfazadmin/FXMLAdminController.java</file>
+            <file>file:/C:/Users/walte/Documents/NetBeansProjects/ProyectoEstructuras/proyecto1p_estructuras/Migraciones/src/migraciones/Migraciones.java</file>
+            <file>file:/C:/Users/walte/Documents/NetBeansProjects/ProyectoEstructuras/proyecto1p_estructuras/Migraciones/src/interfazticket/FXMLTicketController.java</file>
+            <file>file:/C:/Users/walte/Documents/NetBeansProjects/ProyectoEstructuras/proyecto1p_estructuras/Migraciones/src/interfazlogin/FXMLLogin.fxml</file>
         </group>
     </open-files>
 </project-private>

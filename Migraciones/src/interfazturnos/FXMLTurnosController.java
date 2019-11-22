@@ -72,6 +72,8 @@ public class FXMLTurnosController implements Initializable {
     private static final PriorityQueue<Ticket> tickets=AgenciaMigratoria.turnos;
     private static final PriorityQueue<Ticket> turnosEspera=new PriorityQueue<>((Ticket t1, Ticket t2) -> (t2.getPrioridad()-t1.getPrioridad()));
     private static  final HashMap<Integer,Label>puestosTurnos=new HashMap<>();
+    @FXML
+    private Label label7;
     /**
      * Initializes the controller class.
      */

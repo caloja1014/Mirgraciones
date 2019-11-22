@@ -68,7 +68,7 @@
             <Label fx:id="label4" alignment="CENTER" prefHeight="77.0" prefWidth="102.0" />
             <Label fx:id="label5" alignment="CENTER" prefHeight="69.0" prefWidth="101.0" />
             <Label fx:id="label6" alignment="CENTER" prefHeight="79.0" prefWidth="95.0" />
-            <Label fx:id="label6" alignment="CENTER" prefHeight="87.0" prefWidth="119.0" />
+            <Label fx:id="label7" alignment="CENTER" prefHeight="87.0" prefWidth="119.0" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">

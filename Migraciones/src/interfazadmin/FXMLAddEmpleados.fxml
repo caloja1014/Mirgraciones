@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="view_empleados" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazadmin.FXMLAddEmpleadosController">
+   <children>
+      <Label fx:id="lbl_titulo" layoutX="134.0" layoutY="33.0" prefHeight="90.0" prefWidth="339.0" text="GESTOR DE EMPLEADOS" textAlignment="CENTER">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table_empleados" layoutX="59.0" layoutY="130.0" prefHeight="244.0" prefWidth="522.0">
+        <columns>
+          <TableColumn fx:id="col_ced" prefWidth="174.0" text="Cedula" />
+          <TableColumn fx:id="col_nom" prefWidth="174.0" text="Nombre" />
+            <TableColumn fx:id="col_estado" prefWidth="180.0" text="Estado" />
+        </columns>
+      </TableView>
+      <ImageView fx:id="img_empleado" fitHeight="79.0" fitWidth="68.0" layoutX="491.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/empleado.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bt_nuevo" fitHeight="57.0" fitWidth="61.0" layoutX="394.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/agregar.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bt_editar" fitHeight="57.0" fitWidth="60.0" layoutX="210.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/edita.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bt_back" fitHeight="45.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/volver.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
