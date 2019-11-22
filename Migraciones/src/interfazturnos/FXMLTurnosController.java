@@ -68,7 +68,7 @@ public class FXMLTurnosController implements Initializable {
     private Label label5;
     @FXML
     private Label label6;
-    
+    private static List<Label> labelsTurnosEspera;
     private static final PriorityQueue<Ticket> tickets=AgenciaMigratoria.turnos;
     private static final PriorityQueue<Ticket> turnosEspera=new PriorityQueue<>((Ticket t1, Ticket t2) -> (t2.getPrioridad()-t1.getPrioridad()));
     private static  final HashMap<Integer,Label>puestosTurnos=new HashMap<>();
@@ -160,5 +160,9 @@ public class FXMLTurnosController implements Initializable {
                 l.setText(t.getId());
             }
         }
+    }
+    public void actualizacionTickets(){
+    
+        
     }
 }
