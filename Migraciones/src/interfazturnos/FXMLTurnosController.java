@@ -68,7 +68,7 @@ public class FXMLTurnosController implements Initializable {
     private Label label5;
     @FXML
     private Label label6;
-    private static List<Label> labelsTurnosEspera;
+    private static ArrayList<Label> labelsTurnosEspera;
     private static final PriorityQueue<Ticket> tickets=AgenciaMigratoria.turnos;
     private static final PriorityQueue<Ticket> turnosEspera=new PriorityQueue<>((Ticket t1, Ticket t2) -> (t2.getPrioridad()-t1.getPrioridad()));
     private static  final HashMap<Integer,Label>puestosTurnos=new HashMap<>();
@@ -81,7 +81,13 @@ public class FXMLTurnosController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        labelsTurnosEspera=  new ArrayList<>();
+        labelsTurnosEspera.add(label1);
+        labelsTurnosEspera.add(label2);
+        labelsTurnosEspera.add(label3);
+        labelsTurnosEspera.add(label4);
+        labelsTurnosEspera.add(label5);
+        labelsTurnosEspera.add(label6);
         try {
             listaPublicidad=leer();
         } catch (FileNotFoundException ex) {
@@ -137,9 +143,11 @@ public class FXMLTurnosController implements Initializable {
     }
     
     public static void actualizarPuesto(Integer pos){
-        Ticket t =tickets.poll();
+        Ticket t =turnosEspera.poll();
         Label puesto=puestosTurnos.get(pos);
         puesto.setText(t.getId());
+        Ticket t2=tickets.poll();
+        turnosEspera.offer(t2);
     }
         
     
@@ -153,16 +161,26 @@ public class FXMLTurnosController implements Initializable {
         } 
     }
     public void llenarPuestos(){
+        if(turnosEspera.size()<=6){
+            while(!tickets.isEmpty()){
+                Ticket t= tickets.poll();
+                turnosEspera.offer(t);
+            }
+        }
         if(!tickets.isEmpty()){
             for(Map.Entry<Integer,Label> e: puestosTurnos.entrySet()){
                 Label l=e.getValue();
+                
                 Ticket t= tickets.poll();
                 l.setText(t.getId());
             }
         }
     }
     public void actualizacionTickets(){
-    
-        
+        for (Label l : labelsTurnosEspera) {
+            Ticket t =turnosEspera.poll();
+            l.setText(t.getId());
+            turnosEspera.offer(t);
+        }
     }
 }
