@@ -57,8 +57,8 @@ public class FXMLAddEmpleadosController implements Initializable {
     @FXML
     private ImageView bt_back;
     
-    private ObservableList<Empleado> datos = observableArrayList();
-
+    protected static ObservableList<Empleado> datos = observableArrayList();
+    
     /**
      * Initializes the controller class.
      */
@@ -67,25 +67,23 @@ public class FXMLAddEmpleadosController implements Initializable {
         llenarTabla();
     }    
     
-    public void llenarTabla(){
-        try {
+    protected void llenarTabla(){
+        try (Statement st = bd.createStatement()) {
             String query = "SELECT * FROM empleado";
-            Statement st = bd.createStatement();
             ResultSet rs = st.executeQuery(query);
-            
-            col_ced.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+
+            col_ced.setCellValueFactory(new PropertyValueFactory<>("cedula"));   
             col_nom.setCellValueFactory(new PropertyValueFactory<>("nombre"));
             col_estado.setCellValueFactory(new PropertyValueFactory<>("estado"));
-            
+
             while (rs.next()){
                 String cedula = rs.getString("cedula");
                 String nombre = rs.getString("nombre");
                 String estado = rs.getString("estado");
-                
-                datos.add(new Empleado(nombre,cedula,estado));   
+
+                datos.add(new Empleado(nombre,cedula,estado));
             }
             table_empleados.setItems(datos);
-            st.close();
             
         } catch (Exception e) {
           System.err.println("Error al cargar los datos! "+e);
@@ -97,8 +95,7 @@ public class FXMLAddEmpleadosController implements Initializable {
     private void atras(MouseEvent event) throws IOException {
         Parent rootAdmin = FXMLLoader.load(getClass().getResource("/interfazadmin/FXMLAdmin.fxml"));
         stLogin.setScene(new Scene(rootAdmin));
-        stLogin.show();
-        
+        stLogin.show(); 
     }
 
     @FXML
@@ -110,11 +107,14 @@ public class FXMLAddEmpleadosController implements Initializable {
 
     @FXML
     private void toEditarInfoEmpleado(MouseEvent event) throws IOException {
-        FXMLModEmpleadosController.emp_mod = (Empleado) table_empleados.getSelectionModel().getSelectedItem();
+        FXMLModEmpleadosController.emp_mod = (String) table_empleados.getSelectionModel().getSelectedItem().getCedula();
         Parent rootMod = FXMLLoader.load(getClass().getResource("/interfazadmin/FXMLModEmpleados.fxml"));
         ventanita.setScene(new Scene(rootMod));
-        ventanita.show();
-        
+        ventanita.show();   
     }
     
+    protected void actualizarDatos(){
+            datos.removeAll(datos);
+            llenarTabla();
+    }
 }

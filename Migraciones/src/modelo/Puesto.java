@@ -11,10 +11,16 @@ import interfazturnos.FXMLTurnosController;
  */
 public class Puesto {
     private int id;
+    private static int IDT=0;
     private String estado;
 
     public Puesto(int id, String estado) {
         this.id = id;
+        this.estado=estado;
+    }
+    
+    public Puesto(String estado){
+        ++IDT;
         this.estado=estado;
     }
 

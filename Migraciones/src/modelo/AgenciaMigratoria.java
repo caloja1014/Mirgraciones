@@ -5,16 +5,16 @@
  */
 package modelo;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.PriorityQueue;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.geometry.Insets;
+import javafx.scene.control.Label;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import static migraciones.Migraciones.bd;
 
 /**
  *
@@ -22,11 +22,47 @@ import java.util.logging.Logger;
  */
 public class AgenciaMigratoria {
     public static PriorityQueue<Ticket> turnos = new PriorityQueue<>((Ticket t1, Ticket t2) -> (t2.getPrioridad()-t1.getPrioridad()));
-    public static ArrayList<Empleado> empleados;
-    public static ArrayList<Puesto> puestos=new ArrayList<>();
-    public static ArrayList<Puesto> puestosDisponibles=new ArrayList<>();
     
+    public static HashMap<String,Empleado>empleados=new HashMap<>();
+    
+    public static HashMap<Puesto,Empleado> puestosAsignadosEmpl=new HashMap<>();
+    
+    public static ArrayList<Puesto> puestosDisponibles=new ArrayList<>();
     /**
+    private void cargarListas(){
+        try (Statement st = bd.createStatement()) {
+            String query = "SELECT * FROM empleado";
+            ResultSet rs = st.executeQuery(query);
+            
+            while (rs.next()){
+                String cedula = rs.getString("cedula");
+                String nombre = rs.getString("nombre");
+                String estado = rs.getString("estado");
+
+                empleados.put(cedula,new Empleado(nombre,cedula,estado));
+            }
+            
+        } catch (Exception e) {
+          System.err.println("Error al cargar los datos! "+e);
+        }
+        
+        try (Statement st = bd.createStatement()) {
+            String query = "SELECT * FROM puesto";
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String estado = rs.getString("estado");
+                new Puesto(id,estado);
+            }
+            
+        } catch (Exception e) {
+          System.err.println("Error al cargar los datos! "+e);
+        }
+        
+        
+    }
+
 public static void serializar(){
     
         try (FileOutputStream fileOut = new FileOutputStream("registros.ser")) {

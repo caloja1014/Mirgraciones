@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import static migraciones.Migraciones.stLogin;
 
 /**
  * FXML Controller class
@@ -52,11 +53,8 @@ public class FXMLLoginController implements Initializable {
        Stage st = (Stage)Enter.getScene().getWindow();    
        if(user.equals("admin") && pass.equals("admin")){
         Parent root = FXMLLoader.load(getClass().getResource("/interfazadmin/FXMLAdmin.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        st.close();
+        stLogin.setScene(new Scene(root));
+        stLogin.show();
        }
        else{
            System.out.println("User/Password Incorrectos");    

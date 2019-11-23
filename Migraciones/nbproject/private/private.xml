@@ -1,31 +1,12 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
-    </open-files>
-</project-private>
-=======
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/interfazticket/FXMLTicketController.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/interfazturnos/TurnosView.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/modelo/Ticket.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/interfazpuesto/FXMLPuestoController.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/cicularlinkedlist/CircularLinkedList.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/modelo/AgenciaMigratoria.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/modelo/Puesto.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/interfazticket/TickectView.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/cicularlinkedlist/Node.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/publicidad/imagenes.txt</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/interfazturnos/FXMLTurnosController.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/interfazlogin/FXMLLoginController.java</file>
-            <file>file:/C:/Users/CLOJA/Documents/ESPOL/4S/ESTRUCTURA%20DE%20DATOS/Proyect/Migraciones/src/cicularlinkedlist/List.java</file>
+            <file>file:/C:/Users/nicoleagila/OneDrive%20-%20Escuela%20Superior%20Politécnica%20del%20Litoral/ESPOL/5s/Estructuras/Proyecto1P/proyecto1p_estructuras/Migraciones/src/interfazadmin/FXMLModEmpleadosController.java</file>
+            <file>file:/C:/Users/nicoleagila/OneDrive%20-%20Escuela%20Superior%20Politécnica%20del%20Litoral/ESPOL/5s/Estructuras/Proyecto1P/proyecto1p_estructuras/Migraciones/src/interfazadmin/FXMLFormEmpleadosController.java</file>
+            <file>file:/C:/Users/nicoleagila/OneDrive%20-%20Escuela%20Superior%20Politécnica%20del%20Litoral/ESPOL/5s/Estructuras/Proyecto1P/proyecto1p_estructuras/Migraciones/src/interfazadmin/FXMLAddEmpleadosController.java</file>
+            <file>file:/C:/Users/nicoleagila/OneDrive%20-%20Escuela%20Superior%20Politécnica%20del%20Litoral/ESPOL/5s/Estructuras/Proyecto1P/proyecto1p_estructuras/Migraciones/src/modelo/AgenciaMigratoria.java</file>
         </group>
     </open-files>
 </project-private>
->>>>>>> 61914ede8528517dc643de8000a20d72f1dfb985
