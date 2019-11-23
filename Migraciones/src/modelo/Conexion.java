@@ -30,6 +30,7 @@ public class Conexion  {
             System.out.println("Error en conexion "+ex.getMessage());
             this.conexion=null;
         }
+        System.out.println("Conexion existosa");
     }
 
     public Connection getConnection() {

@@ -47,7 +47,7 @@ public class FXMLAddEmpleadosController implements Initializable {
     @FXML
     private TableColumn col_nom;
     @FXML
-    private TableColumn col_estado;
+    private  TableColumn col_estado;
     @FXML
     private ImageView img_empleado;
     @FXML
@@ -58,23 +58,27 @@ public class FXMLAddEmpleadosController implements Initializable {
     private ImageView bt_back;
     
     protected static ObservableList<Empleado> datos = observableArrayList();
+    private static boolean ejecutado = false;
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        llenarTabla();
+       if(ejecutado == false) llenarTabla();
+       else{
+            setDatos();
+       }
+       ejecutado = true;
+        
     }    
     
-    protected void llenarTabla(){
+    public void llenarTabla(){
         try (Statement st = bd.createStatement()) {
             String query = "SELECT * FROM empleado";
             ResultSet rs = st.executeQuery(query);
 
-            col_ced.setCellValueFactory(new PropertyValueFactory<>("cedula"));   
-            col_nom.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-            col_estado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+
 
             while (rs.next()){
                 String cedula = rs.getString("cedula");
@@ -83,7 +87,7 @@ public class FXMLAddEmpleadosController implements Initializable {
 
                 datos.add(new Empleado(nombre,cedula,estado));
             }
-            table_empleados.setItems(datos);
+            setDatos();
             
         } catch (Exception e) {
           System.err.println("Error al cargar los datos! "+e);
@@ -116,5 +120,12 @@ public class FXMLAddEmpleadosController implements Initializable {
     protected void actualizarDatos(){
             datos.removeAll(datos);
             llenarTabla();
+    }
+    private void setDatos(){
+        col_ced.setCellValueFactory(new PropertyValueFactory<>("cedula"));   
+        col_nom.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        col_estado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        table_empleados.setItems(datos);
+        
     }
 }
