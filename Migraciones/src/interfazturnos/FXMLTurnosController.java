@@ -7,8 +7,6 @@ package interfazturnos;
 
 import cicularlinkedlist.CircularLinkedList;
 import cicularlinkedlist.List;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
 import interfazticket.FXMLTicketController;
 import java.io.File;
 import java.io.FileNotFoundException;

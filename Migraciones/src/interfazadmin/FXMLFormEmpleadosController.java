@@ -17,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static migraciones.Migraciones.bd;
+import modelo.Empleado;
 
 /**
  * FXML Controller class
@@ -57,6 +58,8 @@ public class FXMLFormEmpleadosController implements Initializable {
         String query = "INSERT INTO empleado (cedula,nombre) values ( "+"\""+txt_id+"\",\""+txt_nombre+"\");";
         PreparedStatement pst = bd.prepareStatement(query);
         pst.execute();
+        Empleado nuevo= new Empleado (txt_nombre.toString(), txt_id.toString(), "activo");
+        
         
     }
     

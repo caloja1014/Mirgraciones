@@ -22,9 +22,11 @@ import java.util.logging.Logger;
  */
 public class AgenciaMigratoria {
     public static PriorityQueue<Ticket> turnos = new PriorityQueue<>((Ticket t1, Ticket t2) -> (t2.getPrioridad()-t1.getPrioridad()));
-    static ArrayList<Registro> registros;
+    public static ArrayList<Empleado> empleados;
     public static ArrayList<Puesto> puestos=new ArrayList<>();
+    public static ArrayList<Puesto> puestosDisponibles=new ArrayList<>();
     
+    /**
 public static void serializar(){
     
         try (FileOutputStream fileOut = new FileOutputStream("registros.ser")) {
@@ -50,5 +52,5 @@ public static void serializar(){
             Logger.getLogger(AgenciaMigratoria.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+*/
 }
