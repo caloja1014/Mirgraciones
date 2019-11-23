@@ -7,10 +7,13 @@ package interfazturnos;
 
 import cicularlinkedlist.CircularLinkedList;
 import cicularlinkedlist.List;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
 import interfazticket.FXMLTicketController;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -22,7 +25,11 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -31,6 +38,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+import javafx.util.Duration;
 import modelo.AgenciaMigratoria;
 import modelo.Ticket;
 
@@ -81,6 +90,22 @@ public class FXMLTurnosController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {        
+            LocalTime currentTime = LocalTime.now();
+            if(currentTime.getMinute() < 10){
+                tiempo.setText(currentTime.getHour() + ":" + "0"+ currentTime.getMinute());
+            }else{
+                tiempo.setText(currentTime.getHour() + ":" + currentTime.getMinute());
+            }
+        }),
+             new KeyFrame(Duration.seconds(1))
+        );
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();        
+           
+        publicidadIV.fitHeightProperty().bind(publicidad.heightProperty());
+        publicidadIV.fitWidthProperty().bind(publicidad.widthProperty());
+        publicidadIV.setPreserveRatio(false);
         labelsTurnosEspera=  new ArrayList<>();
         labelsTurnosEspera.add(label1);
         labelsTurnosEspera.add(label2);
@@ -88,14 +113,15 @@ public class FXMLTurnosController implements Initializable {
         labelsTurnosEspera.add(label4);
         labelsTurnosEspera.add(label5);
         labelsTurnosEspera.add(label6);
+        labelsTurnosEspera.add(label7);
         try {
             listaPublicidad=leer();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FXMLTurnosController.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println(listaPublicidad);
-
         publicidadLoop();
+        ticketSimulacion();
     }
     
     private void publicidadLoop(){
@@ -103,10 +129,8 @@ public class FXMLTurnosController implements Initializable {
             Iterator<String> it= p.iterator();
             new Thread (() -> {
                 try {
+                    
                     while(it.hasNext()&&loop){
-                        if(loop == false){
-                            break;
-                        }
                         String i = it.next();
                         
                         
@@ -121,6 +145,25 @@ public class FXMLTurnosController implements Initializable {
                     Logger.getLogger(FXMLTicketController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }).start();
+    }
+    
+    private void ticketSimulacion(){
+        new Thread(() ->{
+            try {
+                while(loop != false){
+                Thread.sleep(1000);
+                Platform.runLater(() -> {
+                    llenarPuestos();
+                     actualizacionTickets();
+                });
+                }
+
+ 
+            } catch (InterruptedException ex) {
+                Logger.getLogger(FXMLTurnosController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }).start();
+  
     }
     
     public static List<String> leer() throws FileNotFoundException{
