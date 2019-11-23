@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazticket.FXMLTicketController">
+<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazticket.FXMLTicketController">
    <children>
-      <Label id="labelTurno" fx:id="labelTurno" alignment="CENTER" layoutX="210.0" layoutY="14.0" prefHeight="45.0" prefWidth="181.0" text="ONTEN TU TURNO" />
-      <Label id="labelTipoPersona" fx:id="labelTipoPersona" alignment="CENTER" layoutX="186.0" layoutY="59.0" prefHeight="52.0" prefWidth="231.0" text="Selecciona el tipo de persona" />
-      <Button id="btnTerceraEdad" fx:id="btnTerceraEdad" layoutX="244.0" layoutY="121.0" mnemonicParsing="false" onAction="#turnoD" prefHeight="45.0" prefWidth="116.0" text="Tercera edad" />
-      <Button id="btnEspeciales" fx:id="btnEspeciales" layoutX="212.0" layoutY="178.0" mnemonicParsing="false" onAction="#turnoT" prefHeight="45.0" prefWidth="181.0" text="Capacidades Especiales" />
-      <Button id="btnNormal" fx:id="btnNormal" layoutX="218.0" layoutY="236.0" mnemonicParsing="false" onAction="#turnoU" prefHeight="45.0" prefWidth="170.0" text="Atencion Normal" />
-      <Label fx:id="mostrarTurno" alignment="CENTER" contentDisplay="CENTER" layoutX="177.0" layoutY="309.0" prefHeight="45.0" prefWidth="252.0" textAlignment="CENTER" />
+      <Label id="labelTurno" fx:id="labelTurno" alignment="CENTER" layoutX="183.0" layoutY="14.0" prefHeight="45.0" prefWidth="239.0" text="OBTEN TU TURNO">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label id="labelTipoPersona" fx:id="labelTipoPersona" alignment="CENTER" layoutX="156.0" layoutY="59.0" prefHeight="52.0" prefWidth="292.0" text="Selecciona el tipo de persona">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="mostrarTurno" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="319.0" prefHeight="61.0" prefWidth="292.0" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="discapacitados" fitHeight="155.0" fitWidth="152.0" layoutX="226.0" layoutY="124.0" onMouseClicked="#turnoD" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/discapacitado.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="normal" fitHeight="155.0" fitWidth="80.0" layoutX="475.0" layoutY="122.0" onMouseClicked="#turnoU" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/toppng.com-silueta-persona-sin-fondo-147x401.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="terceraEdad" fitHeight="152.0" fitWidth="136.0" layoutX="30.0" layoutY="131.0" onMouseClicked="#turnoT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/kisspng-old-age-ageing-aged-care-grandparent-clip-art-silhouette-of-the-elderly-5adf9572f27403.3430557815246022269931.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
