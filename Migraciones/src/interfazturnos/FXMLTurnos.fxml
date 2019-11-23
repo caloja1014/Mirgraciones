@@ -12,9 +12,12 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazturnos.FXMLTurnosController">
    <children>
-      <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
          <children>
-            <Label fx:id="tiempo" alignment="CENTER" prefHeight="46.0" prefWidth="68.0" text="12:00" />
+            <Label fx:id="tiempo" alignment="CENTER" prefHeight="46.0" prefWidth="129.0" text="12:00">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
          </children>
       </HBox>
       <HBox prefHeight="427.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
@@ -68,10 +71,10 @@
             <Label fx:id="label4" alignment="CENTER" prefHeight="77.0" prefWidth="102.0" />
             <Label fx:id="label5" alignment="CENTER" prefHeight="69.0" prefWidth="101.0" />
             <Label fx:id="label6" alignment="CENTER" prefHeight="79.0" prefWidth="95.0" />
-            <Label fx:id="label6" alignment="CENTER" prefHeight="87.0" prefWidth="119.0" />
+            <Label fx:id="label7" alignment="CENTER" prefHeight="87.0" prefWidth="119.0" />
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
          <children>
             <Label alignment="CENTER" prefHeight="128.0" prefWidth="800.0" text="Horario de atencion de Lunes a Viernes de 10 a 18 hs/ Sabados">
                <font>
