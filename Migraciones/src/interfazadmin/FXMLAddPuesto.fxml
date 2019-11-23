@@ -20,12 +20,12 @@
             <Image url="@../recursos/puesto.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bt_add" fitHeight="90.0" fitWidth="88.0" layoutX="497.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_add" fitHeight="90.0" fitWidth="88.0" layoutX="497.0" layoutY="253.0" onMouseClicked="#agregarPuestoNuevo" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/agregar.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bt_back" fitHeight="45.0" fitWidth="60.0" layoutX="21.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_back" fitHeight="45.0" fitWidth="60.0" layoutX="21.0" layoutY="19.0" onMouseClicked="#atras" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/volver.png" />
          </image>

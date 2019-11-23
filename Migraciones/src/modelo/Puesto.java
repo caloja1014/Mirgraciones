@@ -10,39 +10,34 @@ import interfazturnos.FXMLTurnosController;
  * @author nicoleagila
  */
 public class Puesto {
-    private Empleado empleado;
     private int id;
-    private boolean disponible;
-    private static int IDP=0;
+    private String estado;
 
-    public Puesto() {
-        this.id = IDP++;
-        this.disponible=true;
+    public Puesto(int id, String estado) {
+        this.id = id;
+        this.estado=estado;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setDisponible(boolean disponible) {
-        if(disponible) FXMLTurnosController.actualizarPuesto(id);
-        this.disponible = disponible;
+    public void setDisponible(String disponible) {
+        if(disponible.equals("activo")) FXMLTurnosController.actualizarPuesto(id);
+        this.estado = disponible;
     }
 
     public int getId() {
         return id;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
     
-    public boolean isDisponible() {
-        return disponible;
+
+    public String getEstado() {
+        return estado;
     }
 
     @Override

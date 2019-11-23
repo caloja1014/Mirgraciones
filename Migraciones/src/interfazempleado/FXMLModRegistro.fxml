@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <TableView fx:id="table_registros" layoutX="26.0" layoutY="159.0" prefHeight="290.0" prefWidth="495.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <ImageView fx:id="bt_edit" fitHeight="101.0" fitWidth="68.0" layoutX="540.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/edita.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bt_delete" fitHeight="75.0" fitWidth="78.0" layoutX="536.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/delete.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbl_titulo" layoutX="148.0" layoutY="14.0" prefHeight="90.0" prefWidth="345.0" text="REGISTRO DE MIGRANTES" textAlignment="CENTER">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_ced" layoutX="31.0" layoutY="105.0" prefHeight="34.0" prefWidth="177.0" text="Cedula del migrante:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_id" layoutX="208.0" layoutY="109.0" prefHeight="31.0" prefWidth="193.0" />
+   </children>
+</AnchorPane>

@@ -6,13 +6,17 @@
 package interfazadmin;
 
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import static migraciones.Migraciones.bd;
 
 /**
  * FXML Controller class
@@ -47,5 +51,13 @@ public class FXMLFormEmpleadosController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void nuevoEmpleado(MouseEvent event) throws SQLException {
+        String query = "INSERT INTO empleado (cedula,nombre) values ( "+"\""+txt_id+"\",\""+txt_nombre+"\");";
+        PreparedStatement pst = bd.prepareStatement(query);
+        pst.execute();
+        
+    }
     
 }

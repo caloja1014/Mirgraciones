@@ -51,7 +51,6 @@ public class FXMLTicketController implements Initializable {
     @FXML
     private void turnoD(ActionEvent event) {
         asignarTurno(2);
-        
     }
 
     @FXML
@@ -63,8 +62,8 @@ public class FXMLTicketController implements Initializable {
     private void turnoU(ActionEvent event) {
         asignarTurno(1);
     }
-    private void asignarTurno(int tur){
-        Ticket t= new Ticket(tur);
+    private void asignarTurno(int tur){       
+        Ticket t = new Ticket(tur);
         AgenciaMigratoria.turnos.offer(t);
         mostrarTurno.setText("Su turno es: "+t.getId());
         new Thread (() -> {

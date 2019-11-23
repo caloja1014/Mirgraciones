@@ -5,6 +5,7 @@
  */
 package modelo;
 
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -13,47 +14,29 @@ import java.util.Objects;
  */
 public final class Ticket {
     private String id;
-    //private Migrante usuario;
-    private final  int prioridad;
-    private static int IDT=0;
+    private static int IDT=1;
+    private final int prioridad;
     private static int contadorT=1;
-    private static int contadorD=1;
-    private static int contadorU=1;
-
-    public Ticket(int prioridad) {
+     private static int contadorD=1;
+     private static int contadorU=1;
+    
+    public Ticket(int prioridad){
         ++IDT;
         generarTurnoPersona(prioridad);
-        //this.usuario = usuario;
         this.prioridad=prioridad;
     }
-
+    
     public String getId() {
         return id;
     }
 
-   /* public Migrante getUsuario() {
-        return usuario;
-    }*/
-
     public int getPrioridad() {
         return prioridad;
     }
-/*
-    public void setUsuario(Migrante usuario) {
-        this.usuario = usuario;
+    
+    public void setId(String id) {
+        this.id = id;
     }
-
-    public int setPrioridad(){
-        if(usuario.getTipo().compareTo(TipoPersona.capEspeciales)==0){
-            return 1;
-        } else if (usuario.getTipo().compareTo(TipoPersona.tercEdad)==0){
-            return 2;
-        }else if (usuario.getTipo().compareTo(TipoPersona.normal)==0){
-            return 3;
-        }
-        return 0;
-    }
-*/
 
     @Override
     public int hashCode() {
@@ -79,19 +62,19 @@ public final class Ticket {
 
     
     public  void generarTurnoPersona(int prioridad){
-        switch (prioridad) {
-            case 3:
-                this.id="A"+Ticket.contadorT;
-                ++contadorT; 
-                break;
-            case 2:
-                this.id="B"+Ticket.contadorD;
-                ++contadorD;
-                break;
-            case 1:
-                this.id="C"+Ticket.contadorU;
-                ++contadorU;
-                break;
+                 switch (prioridad) {
+             case 3:
+                 this.id="A"+Ticket.contadorT;
+                 ++contadorT; 
+                 break;
+             case 2:
+                 this.id="B"+Ticket.contadorD;
+                 ++contadorD;
+                 break;
+             case 1:
+                 this.id="C"+Ticket.contadorU;
+                 ++contadorU;
+                 break;
         }
     }
 

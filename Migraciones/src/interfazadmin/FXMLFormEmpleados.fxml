@@ -24,7 +24,7 @@
             <Font size="23.0" />
          </font>
       </TextField>
-      <ImageView fx:id="bt_agregar" fitHeight="67.0" fitWidth="71.0" layoutX="277.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_agregar" fitHeight="67.0" fitWidth="71.0" layoutX="277.0" layoutY="222.0" onMouseClicked="#nuevoEmpleado" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/agregar.png" />
          </image>

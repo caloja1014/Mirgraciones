@@ -27,17 +27,17 @@
             <Image url="@../recursos/empleado.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bt_nuevo" fitHeight="57.0" fitWidth="61.0" layoutX="394.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_nuevo" fitHeight="57.0" fitWidth="61.0" layoutX="394.0" layoutY="391.0" onMouseClicked="#toAgregarEmpleado" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/agregar.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bt_editar" fitHeight="57.0" fitWidth="60.0" layoutX="210.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_editar" fitHeight="57.0" fitWidth="60.0" layoutX="210.0" layoutY="391.0" onMouseClicked="#toEditarInfoEmpleado" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/edita.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bt_back" fitHeight="45.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_back" fitHeight="45.0" fitWidth="60.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#atras" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/volver.png" />
          </image>

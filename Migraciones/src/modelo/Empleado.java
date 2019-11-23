@@ -11,6 +11,8 @@ package modelo;
  */
 public class Empleado {
     private String nombre;
+    private String cedula;
+    private String estado;
 
     public String getNombre() {
         return nombre;
@@ -20,8 +22,25 @@ public class Empleado {
         this.nombre = nombre;
     }
 
-    public Empleado(String nombre) {
+    public Empleado(String nombre, String cedula, String estado) {
         this.nombre = nombre;
+        this.cedula=cedula;
+        this.estado=estado;
     }
-    
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 }

@@ -13,23 +13,22 @@ import java.util.Objects;
  */
 public class Migrante {
     private String cedula;
-    private TipoPersona tipo;
+    private String nombre;
     private String sexo;
     private int anio_nac;
     private int edad;
     private String nacionalidad;
-    private String pais_res;
-    private String clase_mig;
+    private String pais_residencia;
+    private String clase_migratoria;
 
-    public Migrante(String cedula, TipoPersona tipo, String sexo, int anio_nac, int edad, String nacionalidad, String pais_res, String clase_mig) {
+    public Migrante(String cedula, String sexo, int anio_nac, int edad, String nacionalidad, String pais_res, String clase_mig) {
         this.cedula = cedula;
-        this.tipo = tipo;
         this.sexo = sexo;
         this.anio_nac = anio_nac;
         this.edad = edad;
         this.nacionalidad = nacionalidad;
-        this.pais_res = pais_res;
-        this.clase_mig = clase_mig;
+        this.pais_residencia = pais_res;
+        this.clase_migratoria = clase_mig;
     }
 
     
@@ -46,8 +45,8 @@ public class Migrante {
         return sexo;
     }
     
-    public String getClase_mig() {
-        return clase_mig;
+    public String getClase_migratoria() {
+        return clase_migratoria;
     }
 
     
@@ -58,21 +57,18 @@ public class Migrante {
     public String getNacionalidad() {
         return nacionalidad;
     }
-    
-    public TipoPersona getTipo() {
-        return tipo;
-    }
+ 
 
-    public String getPais_res() {
-        return pais_res;
+    public String getPais_residencia() {
+        return pais_residencia;
     }
 
     public int getEdad() {
         return edad;
     }
 
-    public void setClase_mig(String clase_mig) {
-        this.clase_mig = clase_mig;
+    public void setClase_migratoria(String clase_mig) {
+        this.clase_migratoria = clase_mig;
     }
 
     
@@ -92,12 +88,8 @@ public class Migrante {
         this.nacionalidad = nacionalidad;
     }
 
-    public void setPais_res(String pais_res) {
-        this.pais_res = pais_res;
-    }
-
-    public void setTipo(TipoPersona tipo) {
-        this.tipo = tipo;
+    public void setPais_residencia(String pais_res) {
+        this.pais_residencia = pais_res;
     }
 
     @Override

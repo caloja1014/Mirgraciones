@@ -24,12 +24,12 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <ImageView fx:id="img_emp" fitHeight="180.0" fitWidth="161.0" layoutX="116.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img_emp" fitHeight="180.0" fitWidth="161.0" layoutX="116.0" layoutY="222.0" onMouseClicked="#toVentanaEmpleados" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/empleado.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="img_puesto" fitHeight="196.0" fitWidth="203.0" layoutX="357.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img_puesto" fitHeight="196.0" fitWidth="203.0" layoutX="357.0" layoutY="222.0" onMouseClicked="#toVentanaPuesto" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/puesto.png" />
          </image>
