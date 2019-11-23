@@ -204,11 +204,12 @@ public class FXMLTurnosController implements Initializable {
         } 
     }
     public void llenarPuestos(){
-        if(turnosEspera.size()<=6){
+        if(turnosEspera.size()<6){
             while(!tickets.isEmpty()){
                 Ticket t= tickets.poll();
                 turnosEspera.offer(t);
                 
+                  
             }
             
         }
