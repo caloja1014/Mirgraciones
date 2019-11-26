@@ -39,6 +39,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import modelo.AgenciaMigratoria;
+import modelo.Puesto;
 import modelo.Ticket;
 
 
@@ -192,24 +193,31 @@ public class FXMLTurnosController implements Initializable {
     }
         
     
-    public void crearLabelsPuestos(int i){
+    /*public void crearLabelsPuestos(int i){
         int h=1;
         for(int j=0;j<i;j++){
             Label l=new Label("");
             puestosTurnos.put(h, l);
             turnoPuesto.add(l, 0, h);
             h++;
-        } 
+        }
+    }*/
+    
+    public void crearLabelsPuestos(){
+        int h=1;
+        for (Puesto p : AgenciaMigratoria.puestosDisponibles){
+            Label l=new Label("");
+            puestosTurnos.put(p.getId(), l);
+            turnoPuesto.add(l, 0, h);
+            h++;
+        }
     }
     public void llenarPuestos(){
         if(turnosEspera.size()<6){
             while(!tickets.isEmpty()){
                 Ticket t= tickets.poll();
-                turnosEspera.offer(t);
-                
-                  
-            }
-            
+                turnosEspera.offer(t);    
+            }   
         }
         if(!turnosEspera.isEmpty()){
             for(Map.Entry<Integer,Label> e: puestosTurnos.entrySet()){
@@ -222,8 +230,6 @@ public class FXMLTurnosController implements Initializable {
         }
     }
     public void actualizacionTickets(){
-        //PriorityQueue<Ticket> another=new PriorityQueue<>((Ticket t1, Ticket t2) -> ((t2.getPrioridad()-t1.getPrioridad()))*(Integer.valueOf(t1.getId().substring(1))-Integer.valueOf(t2.getId().substring(1))));
-        
         PriorityQueue<Ticket> another;
         another = new PriorityQueue<>(
                 (Ticket t1, Ticket t2) -> {
