@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazticket.FXMLTicketController">
+<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazticket.FXMLTicketController">
    <children>
       <Label id="labelTurno" fx:id="labelTurno" alignment="CENTER" layoutX="183.0" layoutY="14.0" prefHeight="45.0" prefWidth="239.0" text="OBTEN TU TURNO">
          <font>
@@ -30,12 +30,12 @@
       </ImageView>
       <ImageView fx:id="normal" fitHeight="155.0" fitWidth="80.0" layoutX="475.0" layoutY="122.0" onMouseClicked="#turnoU" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../recursos/toppng.com-silueta-persona-sin-fondo-147x401.png" />
+            <Image url="@../recursos/silueta.png" />
          </image>
       </ImageView>
       <ImageView fx:id="terceraEdad" fitHeight="152.0" fitWidth="136.0" layoutX="30.0" layoutY="131.0" onMouseClicked="#turnoT" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../recursos/kisspng-old-age-ageing-aged-care-grandparent-clip-art-silhouette-of-the-elderly-5adf9572f27403.3430557815246022269931.png" />
+            <Image url="@../recursos/oldman.png" />
          </image>
       </ImageView>
    </children>
