@@ -28,8 +28,8 @@ public class AgenciaMigratoria {
     public static HashMap<Puesto,Empleado> puestosAsignadosEmpl=new HashMap<>();
     
     public static ArrayList<Puesto> puestosDisponibles=new ArrayList<>();
-    /**
-    private void cargarListas(){
+    
+    public static  void cargarListas(){
         try (Statement st = bd.createStatement()) {
             String query = "SELECT * FROM empleado";
             ResultSet rs = st.executeQuery(query);
@@ -53,7 +53,7 @@ public class AgenciaMigratoria {
             while (rs.next()){
                 int id = rs.getInt("id");
                 String estado = rs.getString("estado");
-                new Puesto(id,estado);
+                puestosDisponibles.add(new Puesto(id,estado));
             }
             
         } catch (Exception e) {
@@ -62,7 +62,7 @@ public class AgenciaMigratoria {
         
         
     }
-
+/**
 public static void serializar(){
     
         try (FileOutputStream fileOut = new FileOutputStream("registros.ser")) {
