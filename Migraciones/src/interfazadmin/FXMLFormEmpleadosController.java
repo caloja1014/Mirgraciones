@@ -64,13 +64,14 @@ public class FXMLFormEmpleadosController implements Initializable {
 
     @FXML
     private void nuevoEmpleado(MouseEvent event) throws SQLException {
+        System.out.println(puestosDisponibles);
         String query = "INSERT INTO empleado (cedula,nombre) values ( "+"\""+txt_id.getText()+"\",\""+txt_nombre.getText()+"\");";
         System.out.println(query);
         PreparedStatement pst = bd.prepareStatement(query);
         pst.execute();
         Empleado nuevo= new Empleado (txt_nombre.getText(), txt_id.getText(), "activo");
         nuevosEmpleados.put(txt_id.getText(), nuevo);
-        if(!txt_puesto.getText().isEmpty()) {
+        if(!txt_puesto.getText().isEmpty()) {            
             puestosAsignadosEmpl.put(puestosDisponibles.get(Integer.parseInt(txt_puesto.getText())), nuevo) ;
             String query1 = "INSERT INTO E_P_R (empleado, puesto) values ( "+"\""+txt_id.getText()+"\",\""+puestosDisponibles.get(Integer.parseInt(txt_puesto.getText())).getId()+"\");";
             System.out.println(query1);
