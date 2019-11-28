@@ -16,7 +16,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import modelo.AgenciaMigratoria;
 import modelo.Conexion;
 
 
@@ -37,7 +36,7 @@ public class Migraciones extends Application {
     public void start(Stage stage) throws IOException  {
         Conexion cn = new Conexion();
         bd = cn.getConnection();    
-        AgenciaMigratoria.cargarListas();
+        
         Parent rootTicket = FXMLLoader.load(getClass().getResource("/interfazticket/FXMLTicket.fxml"));
         Parent rootTurnos = FXMLLoader.load(getClass().getResource("/interfazturnos/FXMLTurnos.fxml"));
         Parent rootLogin = FXMLLoader.load(getClass().getResource("/interfazlogin/FXMLLogin.fxml"));
