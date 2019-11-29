@@ -10,6 +10,7 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import static javafx.collections.FXCollections.observableArrayList;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -67,7 +68,7 @@ public class FXMLAddEmpleadosController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
        if(ejecutado == false) llenarTabla();
        else{
-            setDatos();
+            actualizarDatos();
        }
        ejecutado = true;
         
@@ -107,6 +108,20 @@ public class FXMLAddEmpleadosController implements Initializable {
         Parent rootForm = FXMLLoader.load(getClass().getResource("/interfazadmin/FXMLFormEmpleados.fxml"));
         ventanita.setScene(new Scene(rootForm));
         ventanita.show();
+       new Thread (() -> {
+            try {
+                while(ventanita.isShowing()){
+                    Thread.sleep(500);
+                }
+                Platform.runLater(() -> {
+                    actualizarDatos();
+                });
+                System.out.println("Refrescar");
+                
+            }catch (InterruptedException ex) {
+                System.out.println(ex);
+            }
+        }).start();
     }
 
     @FXML
@@ -126,6 +141,8 @@ public class FXMLAddEmpleadosController implements Initializable {
         col_nom.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         col_estado.setCellValueFactory(new PropertyValueFactory<>("estado"));
         table_empleados.setItems(datos);
+        table_empleados.refresh();
         
     }
+
 }
