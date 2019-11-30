@@ -30,6 +30,7 @@ public class AgenciaMigratoria {
     public static ArrayList<Puesto> puestosDisponibles=new ArrayList<>();
     
     public static  void cargarListas(){
+        
         try (Statement st = bd.createStatement()) {
             String query = "SELECT * FROM empleado";
             ResultSet rs = st.executeQuery(query);

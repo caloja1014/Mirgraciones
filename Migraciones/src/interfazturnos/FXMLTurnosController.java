@@ -21,6 +21,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.Animation;
@@ -87,6 +88,7 @@ public class FXMLTurnosController implements Initializable {
     private static final PriorityQueue<Ticket> tickets=AgenciaMigratoria.turnos;
     private static PriorityQueue<Ticket> turnosEspera=new PriorityQueue<>((Ticket t1, Ticket t2) -> (t2.getPrioridad()-t1.getPrioridad()));
     private static  final HashMap<Integer,Text>puestosTurnos=new HashMap<>();
+    private static final HashMap<Integer,Text> puestosLabels = new HashMap<>();
     @FXML
     private Label label7;
     @FXML
@@ -147,6 +149,7 @@ public class FXMLTurnosController implements Initializable {
         crearLabelsPuestos();
         publicidadLoop();
         ticketSimulacion();
+        desHabilitarPuesto(4);
     }
     
     private void publicidadLoop(){
@@ -218,6 +221,15 @@ public class FXMLTurnosController implements Initializable {
         turnosEspera.offer(t2);
     }
         
+    public static void desHabilitarPuesto(int idP){
+       Text t=puestosTurnos.get(idP);
+       t.setText("DESHABILITADO");
+       t.setFont(new Font(15));
+       t.setFill(Color.RED);
+       Text t2= puestosLabels.get(idP);
+       t2.setFill(Color.RED);
+       
+    }
     
     /*public void crearLabelsPuestos(int i){
         int h=1;
@@ -277,6 +289,7 @@ public class FXMLTurnosController implements Initializable {
             stack2.getChildren().addAll(r2, t2);
             //l2.setFont(new Font(20));
             puestosTurnos.put(p.getId(), t);
+            puestosLabels.put(p.getId(), t2);
             turnoPuesto.add(stack, 1, h);
             turnoPuesto.add(stack2, 0, h);
             h++;
