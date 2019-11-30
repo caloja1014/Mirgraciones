@@ -205,7 +205,7 @@ public class FXMLTurnosController implements Initializable {
         loop = false;
     }
     
-    public static void actualizarPuesto(Integer pos){
+    public static  void actualizarPuesto(Integer pos){
         Ticket t =turnosEspera.poll();
         Text puesto=puestosTurnos.get(pos);
         puesto.setText(t.getId());
@@ -213,7 +213,7 @@ public class FXMLTurnosController implements Initializable {
         turnosEspera.offer(t2);
     }
         
-    public static void desHabilitarPuesto(int idP){
+    public  void desHabilitarPuesto(int idP){
        Text t=puestosTurnos.get(idP);
        t.setText("DESHABILITADO");
        t.setFont(new Font(15));
@@ -222,7 +222,7 @@ public class FXMLTurnosController implements Initializable {
        t2.setFill(Color.RED);
        
     }
-    public static void HabilitarPuesto(int idP){
+    public  void HabilitarPuesto(int idP){
         Text t=puestosTurnos.get(idP);
        t.setText("");
        t.setFont(new Font(20));
@@ -319,6 +319,7 @@ public class FXMLTurnosController implements Initializable {
                     Ticket t= turnosEspera.poll();
                     l.setText(t.getId());
                 } 
+                
             }
         }
     }
