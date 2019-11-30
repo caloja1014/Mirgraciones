@@ -3,75 +3,64 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="view_migrantes" prefHeight="640.0" prefWidth="1282.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazempleado.FXMLEmpleadoController">
+<AnchorPane id="AnchorPane" fx:id="view_migrantes" prefHeight="761.0" prefWidth="1282.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazempleado.FXMLEmpleadoController">
    <children>
-      <Label fx:id="lbl_titulo" layoutX="494.0" layoutY="24.0" prefHeight="90.0" prefWidth="347.0" text="REGISTRO DE MIGRANTES" textAlignment="CENTER">
+      <Label fx:id="lbl_titulo" layoutX="494.0" layoutY="39.0" prefHeight="90.0" prefWidth="347.0" text="REGISTRO DE MIGRANTES" textAlignment="CENTER">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-      <TableView fx:id="table_migrantes" layoutX="28.0" layoutY="118.0" prefHeight="415.0" prefWidth="596.0">
-        <columns>
-          <TableColumn fx:id="col_id" prefWidth="86.0" text="Cedula" />
-          <TableColumn fx:id="col_nombres" prefWidth="86.0" text="Nombres" />
-            <TableColumn fx:id="col_sexo" prefWidth="45.0" text="Sexo" />
-            <TableColumn fx:id="col_anio_nac" prefWidth="67.0" text="Año nac" />
-            <TableColumn fx:id="col_edad" prefWidth="52.0" text="Edad" />
-            <TableColumn fx:id="col_nacionalidad" prefWidth="106.0" text="Nacionalidad" />
-            <TableColumn fx:id="col_pais_resi" prefWidth="100.0" text="Pais residencia" />
-            <TableColumn fx:id="col_clase_mig" prefWidth="119.0" text="Clase migratoria" />
-        </columns>
-      </TableView>
-      <ImageView fx:id="img_mig" fitHeight="90.0" fitWidth="112.0" layoutX="326.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img_mig" fitHeight="90.0" fitWidth="112.0" layoutX="326.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/extran.png" />
          </image>
       </ImageView>
-      <TableView fx:id="table_regi_mig" layoutX="667.0" layoutY="118.0" prefHeight="415.0" prefWidth="596.0">
+      <TableView fx:id="table_regi_mig" layoutX="18.0" layoutY="211.0" prefHeight="430.0" prefWidth="1244.0">
          <columns>
-            <TableColumn fx:id="col_id1" prefWidth="34.0" text="No." />
-            <TableColumn fx:id="col_nombres1" prefWidth="74.0" text="Migrante" />
-            <TableColumn fx:id="col_sexo1" prefWidth="70.99996948242188" text="Tipo Mov" />
-            <TableColumn fx:id="col_anio_nac1" prefWidth="75.00003051757812" text="Via Transp" />
-            <TableColumn fx:id="col_edad1" prefWidth="69.0" text="prov_jefm" />
-            <TableColumn fx:id="col_nacionalidad1" prefWidth="62.0" text="can_jefm" />
-            <TableColumn fx:id="col_pais_resi1" prefWidth="92.0" text="Fecha de mov" />
-            <TableColumn fx:id="col_clase_mig1" prefWidth="70.0" text="ocu_migr" />
-            <TableColumn prefWidth="83.0" text="mot_viam" />
-            <TableColumn prefWidth="70.0" text="nac_migr" />
-            <TableColumn prefWidth="70.0" text="pais_prod" />
-            <TableColumn prefWidth="60.0" text="lug_pro" />
-            <TableColumn prefWidth="84.0" text="cont_prod" />
-            <TableColumn prefWidth="64.0" text="cont_res" />
-            <TableColumn prefWidth="64.0" text="cont_nac" />
-            <TableColumn prefWidth="97.0" text="subcont_prod" />
-            <TableColumn prefWidth="90.0" text="subcont_nac" />
+            <TableColumn fx:id="col_noreg" prefWidth="34.0" text="No" />
+            <TableColumn fx:id="col_ced" prefWidth="84.99996948242188" text="Cedula" />
+            <TableColumn fx:id="col_nombreap" prefWidth="113.00003051757812" text="Nombre y Apellido" />
+            <TableColumn fx:id="col_sexo" prefWidth="45.0" text="Sexo" />
+            <TableColumn fx:id="col_anionac" prefWidth="78.0" text="Año de nac" />
+            <TableColumn fx:id="col_edad" prefWidth="41.0" text="Edad" />
+            <TableColumn fx:id="col_nacionalidad" text="Nacionalidad" />
+            <TableColumn fx:id="col_paisresid" prefWidth="96.0" text="Pais-residencia" />
+            <TableColumn fx:id="col_clasemig" prefWidth="101.0" text="Clase-migracion" />
+            <TableColumn fx:id="col_tipomov" prefWidth="110.0" text="Tipo-movilizacion" />
+            <TableColumn fx:id="col_viatrans" prefWidth="93.0" text="Via-transporte" />
+            <TableColumn fx:id="col_paisdest" prefWidth="85.0" text="Pais-destino" />
+            <TableColumn fx:id="col_tiempoesta" prefWidth="98.0" text="Tiempo-estadia" />
+            <TableColumn fx:id="col_fsalida" prefWidth="87.0" text="Fecha-salida" />
+            <TableColumn fx:id="col_fentrada" prefWidth="96.0" text="Fecha-regreso" />
          </columns>
       </TableView>
-      <ImageView fx:id="bt_search" fitHeight="78.0" fitWidth="90.0" layoutX="287.0" layoutY="548.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_search" fitHeight="26.0" fitWidth="33.0" layoutX="430.0" layoutY="169.0" onMouseClicked="#buscarMig" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/show.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bt_add" fitHeight="68.0" fitWidth="91.0" layoutX="949.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_add" fitHeight="68.0" fitWidth="91.0" layoutX="408.0" layoutY="658.0" onMouseClicked="#addReg" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/agregar.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bt_edit" fitHeight="101.0" fitWidth="68.0" layoutX="740.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_edit" fitHeight="101.0" fitWidth="68.0" layoutX="614.0" layoutY="657.0" onMouseClicked="#modificarReg" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/edita.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bt_delete" fitHeight="75.0" fitWidth="78.0" layoutX="1147.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_delete" fitHeight="75.0" fitWidth="78.0" layoutX="823.0" layoutY="653.0" onMouseClicked="#borrarReg" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/delete.png" />
          </image>
       </ImageView>
+      <TextField fx:id="txt_cedula" layoutX="219.0" layoutY="169.0" />
+      <Label fx:id="lbl_cedula" layoutX="51.0" layoutY="160.0" prefHeight="45.0" prefWidth="131.0" text="Cedula del Migrante" wrapText="true" />
    </children>
 </AnchorPane>

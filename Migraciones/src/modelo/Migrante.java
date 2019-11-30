@@ -21,8 +21,9 @@ public class Migrante {
     private String pais_residencia;
     private String clase_migratoria;
 
-    public Migrante(String cedula, String sexo, int anio_nac, int edad, String nacionalidad, String pais_res, String clase_mig) {
+    public Migrante(String cedula,String nombre, String sexo, int anio_nac, int edad, String nacionalidad, String pais_res, String clase_mig) {
         this.cedula = cedula;
+        this.nombre=nombre;
         this.sexo = sexo;
         this.anio_nac = anio_nac;
         this.edad = edad;
@@ -31,6 +32,17 @@ public class Migrante {
         this.clase_migratoria = clase_mig;
     }
 
+    public Migrante(String cedula){
+        this.cedula=cedula;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
     
     
     public String getCedula() {

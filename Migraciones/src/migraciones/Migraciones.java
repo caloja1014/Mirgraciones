@@ -41,10 +41,12 @@ public class Migraciones extends Application {
         Parent rootTicket = FXMLLoader.load(getClass().getResource("/interfazticket/FXMLTicket.fxml"));
         Parent rootTurnos = FXMLLoader.load(getClass().getResource("/interfazturnos/FXMLTurnos.fxml"));
         Parent rootLogin = FXMLLoader.load(getClass().getResource("/interfazlogin/FXMLLogin.fxml"));
+        Parent rootEmpleado = FXMLLoader.load(getClass().getResource("/interfazempleado/FXMLEmpleado.fxml"));
               
         Scene scTicket = new Scene(rootTicket);
         Scene scTurnos = new Scene(rootTurnos);
         Scene scLogin = new Scene(rootLogin);
+        Scene scEmpleado = new Scene(rootEmpleado);
 
         stTurnosP.setOnHiding(new EventHandler<WindowEvent>() {
 
@@ -63,6 +65,8 @@ public class Migraciones extends Application {
         stTicket.setScene(scTicket);
         stLogin.setScene(scLogin);
         stTurnosP.setScene(scTurnos);
+        stEmpleado.setScene(scEmpleado);
+        stEmpleado.show();
         stLogin.show();  
         stTurnosP.show();
         stTicket.show();

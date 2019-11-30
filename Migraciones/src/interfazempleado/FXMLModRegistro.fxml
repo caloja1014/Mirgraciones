@@ -1,43 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+<AnchorPane id="AnchorPane" fx:id="pane_nreg" prefHeight="458.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazempleado.FXMLModRegistroController">
    <children>
-      <TableView fx:id="table_registros" layoutX="26.0" layoutY="159.0" prefHeight="290.0" prefWidth="495.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
-      <ImageView fx:id="bt_edit" fitHeight="101.0" fitWidth="68.0" layoutX="540.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_add" fitHeight="101.0" fitWidth="68.0" layoutX="715.0" layoutY="371.0" onMouseClicked="#aggRegi" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../recursos/edita.png" />
+            <Image url="@../recursos/agregar.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bt_delete" fitHeight="75.0" fitWidth="78.0" layoutX="536.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../recursos/delete.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="lbl_titulo" layoutX="148.0" layoutY="14.0" prefHeight="90.0" prefWidth="345.0" text="REGISTRO DE MIGRANTES" textAlignment="CENTER">
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Label>
       <Label fx:id="lbl_ced" layoutX="31.0" layoutY="105.0" prefHeight="34.0" prefWidth="177.0" text="Cedula del migrante:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txt_id" layoutX="208.0" layoutY="109.0" prefHeight="31.0" prefWidth="193.0" />
+      <TextField fx:id="txt_id" layoutX="207.0" layoutY="105.0" prefHeight="31.0" prefWidth="193.0" />
+      <Label fx:id="lbl_titulo1" layoutX="220.0" layoutY="39.0" text="Nuevo Registro de Migracion">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_nombre" layoutX="31.0" layoutY="147.0" prefHeight="34.0" prefWidth="177.0" text="Nombre">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_nombre" layoutX="207.0" layoutY="147.0" prefHeight="31.0" prefWidth="193.0" />
+      <Label fx:id="lbl_sexo" layoutX="31.0" layoutY="191.0" prefHeight="34.0" prefWidth="177.0" text="Sexo ( F-M )">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_sexo" layoutX="207.0" layoutY="191.0" prefHeight="31.0" prefWidth="193.0" />
+      <Label fx:id="lbl_annac" layoutX="31.0" layoutY="233.0" prefHeight="34.0" prefWidth="177.0" text="Ano de nacimiento">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_anionac" layoutX="207.0" layoutY="233.0" prefHeight="31.0" prefWidth="193.0" />
+      <Label fx:id="lbl_edad" layoutX="31.0" layoutY="272.0" prefHeight="34.0" prefWidth="177.0" text="Edad">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_edad" layoutX="207.0" layoutY="272.0" prefHeight="31.0" prefWidth="193.0" />
+      <Label fx:id="lbl_nacional" layoutX="31.0" layoutY="314.0" prefHeight="34.0" prefWidth="177.0" text="Nacionalidad">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_nacionalid" layoutX="207.0" layoutY="314.0" prefHeight="31.0" prefWidth="193.0" />
+      <Label fx:id="lbl_paisres" layoutX="31.0" layoutY="358.0" prefHeight="34.0" prefWidth="177.0" text="Pais de Residencia">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_paisres" layoutX="207.0" layoutY="358.0" prefHeight="31.0" prefWidth="193.0" />
+      <Label fx:id="lbl_clasmig" layoutX="31.0" layoutY="400.0" prefHeight="34.0" prefWidth="177.0" text="Clase Migratoria">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_clasemig" layoutX="207.0" layoutY="400.0" prefHeight="31.0" prefWidth="193.0" />
+      <Label fx:id="lbl_tipmov" layoutX="424.0" layoutY="105.0" prefHeight="34.0" prefWidth="177.0" text="Tipo de Movilizacion">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_viatransp" layoutX="424.0" layoutY="147.0" prefHeight="34.0" prefWidth="177.0" text="Via de transporte">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_viatrans" layoutX="600.0" layoutY="147.0" prefHeight="31.0" prefWidth="193.0" />
+      <Label fx:id="lbl_paisdest" layoutX="424.0" layoutY="191.0" prefHeight="34.0" prefWidth="177.0" text="Pais destino">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_destino" layoutX="600.0" layoutY="191.0" prefHeight="31.0" prefWidth="193.0" />
+      <Label fx:id="lbl_tiempoest" layoutX="424.0" layoutY="233.0" prefHeight="34.0" prefWidth="177.0" text="Tiempo de estadia">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_tiempesta" layoutX="600.0" layoutY="233.0" prefHeight="31.0" prefWidth="193.0" />
+      <Label fx:id="lbl_fsalida" layoutX="424.0" layoutY="275.0" prefHeight="34.0" prefWidth="177.0" text="Fecha de salida">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_fregreso" layoutX="424.0" layoutY="317.0" prefHeight="34.0" prefWidth="177.0" text="Fecha de regreso">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="fechasalida" layoutX="600.0" layoutY="279.0" prefHeight="26.0" prefWidth="193.0" />
+      <DatePicker fx:id="fecharegreso" layoutX="601.0" layoutY="319.0" prefHeight="26.0" prefWidth="193.0" />
+      <ComboBox fx:id="cb_tipomov" layoutX="601.0" layoutY="111.0" prefHeight="28.0" prefWidth="193.0" />
    </children>
 </AnchorPane>

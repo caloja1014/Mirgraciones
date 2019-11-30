@@ -14,167 +14,100 @@ import java.util.Date;
  */
 public class Registro implements Serializable{
     private Migrante migrante;
-    private TipoMov tip_movi;
-    private String via_transp;
-    private String prov_jefm;
-    private String can_jefm;
-    private Date fecha_mov;
-    private String ocu_migr;
-    private String mot_viam;
-    private String nac_migr;
-    private String pais_prod;
-    private String lug_pro;
-    private String cont_prod;
-    private String cont_res;
-    private String cont_nac;
-    private String subcont_prod;
-    private String subcont_nac;
+    private int id;
+    private String tipo_movilizacion;
+    private String  pais_dest;
+    private String via_transporte;
+    private Date fecha_registro;
+    private int tiempo_estadia;
+    private Date fecha_salida;
+    private Date fecha_regreso;
+    private String estado;
+
+    public Registro(Migrante migrante, int id, String tipo_movilizacion, String via_transporte, Date fecha_registro, int tiempo_estadia, Date fecha_salida, Date fecha_regreso,String pais_dest, String estado) {
+        this.migrante = migrante;
+        this.id = id;
+        this.tipo_movilizacion = tipo_movilizacion;
+        this.via_transporte = via_transporte;
+        this.fecha_registro = fecha_registro;
+        this.tiempo_estadia = tiempo_estadia;
+        this.fecha_salida = fecha_salida;
+        this.fecha_regreso = fecha_regreso;
+        this.pais_dest=pais_dest;
+        this.estado = estado;
+    }
 
     public Migrante getMigrante() {
         return migrante;
     }
 
-    public TipoMov getTip_movi() {
-        return tip_movi;
+    public int getId() {
+        return id;
     }
 
-    public String getVia_transp() {
-        return via_transp;
+    public String getTipo_movilizacion() {
+        return tipo_movilizacion;
     }
 
-    public String getProv_jefm() {
-        return prov_jefm;
+    public String getVia_transporte() {
+        return via_transporte;
     }
 
-    public String getCan_jefm() {
-        return can_jefm;
+    public Date getFecha_registro() {
+        return fecha_registro;
     }
 
-    public Date getFecha_mov() {
-        return fecha_mov;
+    public int getTiempo_estadia() {
+        return tiempo_estadia;
     }
 
-    public String getOcu_Migr() {
-        return ocu_migr;
+    public Date getFecha_salida() {
+        return fecha_salida;
     }
 
-    public String getMot_viam() {
-        return mot_viam;
+    public Date getFecha_regreso() {
+        return fecha_regreso;
     }
 
-    public String getNac_migr() {
-        return nac_migr;
-    }
-
-    public String getPais_prod() {
-        return pais_prod;
-    }
-
-    public String getLug_pro() {
-        return lug_pro;
-    }
-
-    public String getCont_prod() {
-        return cont_prod;
-    }
-
-    public String getCont_res() {
-        return cont_res;
-    }
-
-    public String getCont_nac() {
-        return cont_nac;
-    }
-
-    public String getSubcont_prod() {
-        return subcont_prod;
-    }
-
-    public String getSubcont_nac() {
-        return subcont_nac;
+    public String getEstado() {
+        return estado;
     }
 
     public void setMigrante(Migrante migrante) {
         this.migrante = migrante;
     }
 
-    public void setTip_movi(TipoMov tip_movi) {
-        this.tip_movi = tip_movi;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setVia_transp(String via_transp) {
-        this.via_transp = via_transp;
+    public void setTipo_movilizacion(String tipo_movilizacion) {
+        this.tipo_movilizacion = tipo_movilizacion;
     }
 
-    public void setProv_jefm(String prov_jefm) {
-        this.prov_jefm = prov_jefm;
+    public void setVia_transporte(String via_transporte) {
+        this.via_transporte = via_transporte;
     }
 
-    public void setCan_jefm(String can_jefm) {
-        this.can_jefm = can_jefm;
+    public void setFecha_registro(Date fecha_registro) {
+        this.fecha_registro = fecha_registro;
     }
 
-    public void setFecha_mov(Date fecha_mov) {
-        this.fecha_mov = fecha_mov;
+    public void setTiempo_estadia(int tiempo_estadia) {
+        this.tiempo_estadia = tiempo_estadia;
     }
 
-    public void setOcu_migr(String ocu_migr) {
-        this.ocu_migr = ocu_migr;
+    public void setFecha_salida(Date fecha_salida) {
+        this.fecha_salida = fecha_salida;
     }
 
-    public void setMot_viam(String mot_viam) {
-        this.mot_viam = mot_viam;
+    public void setFecha_regreso(Date fecha_regreso) {
+        this.fecha_regreso = fecha_regreso;
     }
 
-    public void setNac_migr(String nac_migr) {
-        this.nac_migr = nac_migr;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public void setPais_prod(String pais_prod) {
-        this.pais_prod = pais_prod;
-    }
 
-    public void setLug_pro(String lug_pro) {
-        this.lug_pro = lug_pro;
-    }
-
-    public void setCont_prod(String cont_prod) {
-        this.cont_prod = cont_prod;
-    }
-
-    public void setCont_res(String cont_res) {
-        this.cont_res = cont_res;
-    }
-
-    public void setCont_nac(String cont_nac) {
-        this.cont_nac = cont_nac;
-    }
-
-    public void setSubcont_prod(String subcont_prod) {
-        this.subcont_prod = subcont_prod;
-    }
-
-    public void setSubcont_nac(String subcont_nac) {
-        this.subcont_nac = subcont_nac;
-    }
-
-    public Registro(Migrante migrante, TipoMov tip_movi, String via_transp, String prov_jefm, String can_jefm, Date fecha_mov, String ocu_migr, String mot_viam, String nac_migr, String pais_prod, String lug_pro, String cont_prod, String cont_res, String cont_nac, String subcont_prod, String subcont_nac) {
-        this.migrante = migrante;
-        this.tip_movi = tip_movi;
-        this.via_transp = via_transp;
-        this.prov_jefm = prov_jefm;
-        this.can_jefm = can_jefm;
-        this.fecha_mov = fecha_mov;
-        this.ocu_migr = ocu_migr;
-        this.mot_viam = mot_viam;
-        this.nac_migr = nac_migr;
-        this.pais_prod = pais_prod;
-        this.lug_pro = lug_pro;
-        this.cont_prod = cont_prod;
-        this.cont_res = cont_res;
-        this.cont_nac = cont_nac;
-        this.subcont_prod = subcont_prod;
-        this.subcont_nac = subcont_nac;
-    }
-    
 }
