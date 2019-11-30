@@ -75,8 +75,8 @@ public class FXMLFormEmpleadosController implements Initializable {
             puestosAsignadosEmpl.put(puestosDisponibles.get(Integer.parseInt(txt_puesto.getText())), nuevo) ;
             String query1 = "INSERT INTO E_P_R (empleado, puesto) values ( "+"\""+txt_id.getText()+"\",\""+puestosDisponibles.get(Integer.parseInt(txt_puesto.getText())).getId()+"\");";
             System.out.println(query1);
-            PreparedStatement pst1 = bd.prepareStatement(query);
-            //pst1.execute();
+            PreparedStatement pst1 = bd.prepareStatement(query1);
+            pst1.execute();
         }
         ventanita.close();
     }
