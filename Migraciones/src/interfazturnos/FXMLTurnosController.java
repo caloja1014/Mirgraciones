@@ -66,7 +66,7 @@ public class FXMLTurnosController implements Initializable {
     @FXML
     private Pane publicidad;
     @FXML
-    private GridPane turnoPuesto;
+    private static GridPane turnoPuesto;
     private static List<String> listaPublicidad;
     @FXML
     private ImageView publicidadIV;
@@ -230,16 +230,38 @@ public class FXMLTurnosController implements Initializable {
        t2.setFill(Color.RED);
        
     }
+    public static void HabilitarPuesto(int idP){
+        Text t=puestosTurnos.get(idP);
+       t.setText("");
+       t.setFont(new Font(20));
+       t.setFill(Color.WHITE);
+       Text t2= puestosLabels.get(idP);
+       t2.setFill(Color.WHITE);
+       actualizarPuesto(idP);
+    }
     
-    /*public void crearLabelsPuestos(int i){
-        int h=1;
-        for(int j=0;j<i;j++){
-            Label l=new Label("");
-            puestosTurnos.put(h, l);
-            turnoPuesto.add(l, 0, h);
-            h++;
-        }
-    }*/
+    public static void  agregarPuesto(Puesto p){
+        Rectangle r = new Rectangle(155,30);
+            r.setFill(Color.rgb(102, 102, 255));
+            r.setStroke(Color.rgb(102, 102, 255));
+            StackPane stack = new StackPane();
+            Text t=new Text("");
+            t.setFont(new Font(25));
+            t.setFill(Color.WHITE);
+            stack.getChildren().addAll(r, t);
+            Rectangle r2 = new Rectangle(155,30);
+            r2.setFill(Color.rgb(102, 178, 255));
+            r2.setStroke(Color.rgb(102, 178, 255));
+            StackPane stack2 = new StackPane();
+            Text t2=new Text(String.valueOf(p.getId()));
+            t2.setFont(new Font(25));
+            t2.setFill(Color.WHITE);
+            stack2.getChildren().addAll(r2, t2);
+            puestosTurnos.put(p.getId(), t);
+            puestosLabels.put(p.getId(), t2);
+            turnoPuesto.add(stack, 1, puestosTurnos.size()+3);
+            turnoPuesto.add(stack2, 0, puestosTurnos.size()+3);
+    }
     
     public void crearLabelsPuestos(){
         int h=1;
@@ -274,11 +296,6 @@ public class FXMLTurnosController implements Initializable {
             t.setFont(new Font(25));
             t.setFill(Color.WHITE);
             stack.getChildren().addAll(r, t);
-            //Label l=new Label();
-            //l.setMinSize(4, 4);
-            //l.setFont(new Font(20));
-           // Label l2 = new Label(String.valueOf(p.getId()));
-            //l2.setStyle("-fx-background-color:POWDERBLUE");
             Rectangle r2 = new Rectangle(155,30);
             r2.setFill(Color.rgb(102, 178, 255));
             r2.setStroke(Color.rgb(102, 178, 255));
@@ -287,7 +304,6 @@ public class FXMLTurnosController implements Initializable {
             t2.setFont(new Font(25));
             t2.setFill(Color.WHITE);
             stack2.getChildren().addAll(r2, t2);
-            //l2.setFont(new Font(20));
             puestosTurnos.put(p.getId(), t);
             puestosLabels.put(p.getId(), t2);
             turnoPuesto.add(stack, 1, h);
