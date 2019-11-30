@@ -49,6 +49,8 @@ public class Migraciones extends Application {
         Scene scEmpleado = new Scene(rootEmpleado);
 
         stTurnosP.setOnHiding(new EventHandler<WindowEvent>() {
+            
+            
 
          @Override
          public void handle(WindowEvent event) {

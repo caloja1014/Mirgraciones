@@ -141,7 +141,7 @@ public class FXMLTurnosController implements Initializable {
         crearLabelsPuestos();
         publicidadLoop();
         ticketSimulacion();
-        desHabilitarPuesto(4);
+        //desHabilitarPuesto(4);
     }
     
     private void publicidadLoop(){

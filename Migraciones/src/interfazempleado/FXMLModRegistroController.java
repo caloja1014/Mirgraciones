@@ -8,7 +8,13 @@ package interfazempleado;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.ResourceBundle;
+import static javafx.collections.FXCollections.observableArrayList;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -20,8 +26,10 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static migraciones.Migraciones.bd;
+import static migraciones.Migraciones.ventanita;
 import modelo.Puesto;
 import modelo.Registro;
+import modelo.TipoMov;
 
 /**
  * FXML Controller class
@@ -31,7 +39,7 @@ import modelo.Registro;
 public class FXMLModRegistroController implements Initializable {
 
     @FXML
-    private AnchorPane pane_nreg;
+    public AnchorPane pane_nreg;
     @FXML
     private ImageView bt_add;
     @FXML
@@ -91,7 +99,7 @@ public class FXMLModRegistroController implements Initializable {
     @FXML
     private DatePicker fecharegreso;
     @FXML
-    private ComboBox<String> cb_tipomov;
+    private ComboBox<TipoMov> cb_tipomov;
     
     protected static Registro regiMod;
     
@@ -102,7 +110,8 @@ public class FXMLModRegistroController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        autollenarDatos();
+        llenarTiposMov();
+        if(!nuevo){ autollenarDatos();}
     }    
     
     public void autollenarDatos(){
@@ -119,12 +128,32 @@ public class FXMLModRegistroController implements Initializable {
 
     @FXML
     private void aggRegi(MouseEvent event) throws SQLException {
-        if(nuevo==false){
-            String queryMig = "INSERT INTO migrante values ( "+"\""+txt_id.getText()+"\",\""+txt_nombre.getText()+"\",\""+txt_sexo.getText()+"\","+txt_anionac.getText()+","+txt_edad.getText()+"\""+txt_nacionalid.getText()+"\""+");";
-            String queryReg = "INSERT INTO registro values ();";
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        String fecha = dateFormat.format(date);  
+        if(nuevo){
+            String queryMig = "INSERT INTO migrante values ( "+"\""+txt_id.getText()+"\",\""+txt_nombre.getText()+"\",\""+txt_sexo.getText()+"\","+txt_anionac.getText()+","+txt_edad.getText()+",\""+txt_nacionalid.getText()+"\",\""+txt_paisres.getText()+"\",\""+txt_clasemig.getText()+"\""+");";
+            System.out.println(queryMig);      
+            String queryReg = "INSERT INTO REGISTRO (fecha_registro,migrante,tipo_movilizacion,via_transporte,pais_dest,tiempo_estadia,fecha_salida,fecha_regreso) values ("+"\""+fecha+"\",\""+txt_id.getText()+"\",\""+cb_tipomov.getValue()+"\",\""+txt_viatrans.getText()+"\",\""+txt_destino.getText()+"\",\""+txt_tiempesta.getText()+"\",\""+fechasalida.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+fecharegreso.getValue().format(DateTimeFormatter.ISO_DATE)+"\""+");";
+            System.out.println(queryReg);
+            PreparedStatement pst = bd.prepareStatement(queryReg);
+            PreparedStatement pst1 = bd.prepareStatement(queryMig);
+            pst1.execute();
+            pst.execute();
+        } else {
+            String queryReg = "INSERT INTO REGISTRO (fecha_registro,migrante,tipo_movilizacion,via_transporte,pais_dest,tiempo_estadia,fecha_salida,fecha_regreso) values ("+"\""+fecha+"\",\""+txt_id.getText()+"\",\""+cb_tipomov.getValue()+"\",\""+txt_viatrans.getText()+"\",\""+txt_destino.getText()+"\",\""+txt_tiempesta.getText()+"\",\""+fechasalida.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+fecharegreso.getValue().format(DateTimeFormatter.ISO_DATE)+"\""+");";
+            System.out.println(queryReg);
             PreparedStatement pst = bd.prepareStatement(queryReg);
             pst.execute();
         }
+        ventanita.close();
+    }
+    
+    public void llenarTiposMov(){
+        ObservableList<TipoMov> tipos= observableArrayList();
+        tipos.add(TipoMov.Entrada);
+        tipos.add(TipoMov.Salida);
+        cb_tipomov.setItems(tipos);
     }
     
     

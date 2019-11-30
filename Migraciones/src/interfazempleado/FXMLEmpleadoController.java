@@ -120,7 +120,7 @@ public class FXMLEmpleadoController implements Initializable {
                 String tipo_movilizacion = rs.getString("tipo_movilizacion");
                 String via_transporte = rs.getString("via_transporte");
                 String pais_dest = rs.getString("pais_dest");
-                int tiempo_estadia = rs.getInt("tiempo_estadia");
+                String tiempo_estadia = rs.getString("tiempo_estadia");
                 Date fecha_registro = rs.getDate("fecha_salida");
                 Date fecha_salida = rs.getDate("fecha_salida");
                 Date fecha_regreso = rs.getDate("fecha_regreso");
@@ -160,27 +160,24 @@ public class FXMLEmpleadoController implements Initializable {
 
     @FXML
     private void buscarMig(MouseEvent event) throws IOException {
-        FXMLModRegistroController.regiMod = (Registro) table_regi_mig.getSelectionModel().getSelectedItem();
-        Parent rootMod = FXMLLoader.load(getClass().getResource("/interfazempleado/FXMLModRegistro.fxml"));
-        ventanita.setScene(new Scene(rootMod));
-        ventanita.show();   
+        
     }
 
     @FXML
     private void addReg(MouseEvent event) throws IOException {
         FXMLModRegistroController.nuevo=true;
-        Parent rootGEmpleados = FXMLLoader.load(getClass().getResource("/interfazadmin/FXMLAddEmpleados.fxml"));
-        stEmpleado.setScene(new Scene(rootGEmpleados));
-        stEmpleado.show();
+        Parent rootGEmpleados = FXMLLoader.load(getClass().getResource("/interfazempleado/FXMLModRegistro.fxml"));
+        ventanita.setScene(new Scene(rootGEmpleados));
+        ventanita.show();
         
     }
 
     @FXML
     private void modificarReg(MouseEvent event) throws IOException {
         FXMLModRegistroController.nuevo=false;
-        Parent rootGEmpleados = FXMLLoader.load(getClass().getResource("/interfazempleado/FXMLModRegistroController.fxml"));
-        stEmpleado.setScene(new Scene(rootGEmpleados));
-        stEmpleado.show();
+        Parent rootGEmpleados = FXMLLoader.load(getClass().getResource("/interfazempleado/FXMLModRegistro.fxml"));
+        ventanita.setScene(new Scene(rootGEmpleados));
+        ventanita.show();
     }
 
     @FXML

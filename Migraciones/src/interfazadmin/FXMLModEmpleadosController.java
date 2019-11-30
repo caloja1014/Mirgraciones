@@ -25,6 +25,7 @@ import static modelo.AgenciaMigratoria.empleados;
 import static modelo.AgenciaMigratoria.puestosDisponibles;
 import modelo.Empleado;
 import static modelo.AgenciaMigratoria.puestosAsignadosEmpl;
+import modelo.EstadoDipopnibilidad;
 
 /**
  * FXML Controller class
@@ -48,7 +49,7 @@ public class FXMLModEmpleadosController implements Initializable {
     @FXML
     private ImageView bt_editar;
     @FXML
-    private ComboBox<String> cb_estados;
+    private ComboBox<EstadoDipopnibilidad> cb_estados;
     
     public static HashMap<String,Empleado> nuevosEmpleados=empleados;
     
@@ -64,12 +65,12 @@ public class FXMLModEmpleadosController implements Initializable {
 
     @FXML
     private void modificarInfo(MouseEvent event) throws SQLException {
-        if(!cb_estados.getValue().isEmpty()){
+        if(cb_estados.getValue()!=null){
             String query = "UPDATE empleado set estado= "+"\""+cb_estados.getValue()+"\" where cedula = \""+emp_mod+"\";";
             System.out.println(query);
             PreparedStatement pst = bd.prepareStatement(query);
             pst.execute();
-            nuevosEmpleados.get(emp_mod).setEstado(cb_estados.getValue());
+            nuevosEmpleados.get(emp_mod).setEstado(cb_estados.getValue().name());
         } if(!txt_puesto.getText().isEmpty()) {
             puestosAsignadosEmpl.put(puestosDisponibles.get(0),nuevosEmpleados.get(emp_mod));
             puestosDisponibles.remove(0);
@@ -77,9 +78,9 @@ public class FXMLModEmpleadosController implements Initializable {
     }
     
     private void agregarEstados(){
-        ObservableList<String> estados= observableArrayList();
-        estados.add("Disponible");
-        estados.add("Ausente");
+        ObservableList<EstadoDipopnibilidad> estados= observableArrayList();
+        estados.add(EstadoDipopnibilidad.Ausente);
+        estados.add(EstadoDipopnibilidad.Disponible);
         cb_estados.setItems(estados);
     }
     

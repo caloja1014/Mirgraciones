@@ -9,6 +9,7 @@ package modelo;
  *
  * @author nicoleagila
  */
-public enum TipoMov {
-    Entrada,Salida;
+public enum  EstadoDipopnibilidad {
+    Disponible, Ausente;
+    
 }
