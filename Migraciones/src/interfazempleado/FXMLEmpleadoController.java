@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import static javafx.collections.FXCollections.observableArrayList;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -53,21 +55,21 @@ public class FXMLEmpleadoController implements Initializable {
     @FXML
     private TableColumn col_noreg;
     @FXML
-    private TableColumn col_ced;
+    private TableColumn<Registro,String> col_ced;
     @FXML
-    private TableColumn col_nombreap;
+    private TableColumn<Registro,String> col_nombreap;
     @FXML
-    private TableColumn col_sexo;
+    private TableColumn<Registro,String> col_sexo;
     @FXML
-    private TableColumn col_anionac;
+    private TableColumn<Registro,Integer> col_anionac;
     @FXML
-    private TableColumn col_edad;
+    private TableColumn<Registro,Integer> col_edad;
     @FXML
-    private TableColumn col_nacionalidad;
+    private TableColumn<Registro,String> col_nacionalidad;
     @FXML
-    private TableColumn col_paisresid;
+    private TableColumn<Registro,String> col_paisresid;
     @FXML
-    private TableColumn col_clasemig;
+    private TableColumn<Registro,String> col_clasemig;
     @FXML
     private TableColumn col_tipomov;
     @FXML
@@ -113,7 +115,7 @@ public class FXMLEmpleadoController implements Initializable {
                 int anio_nac = rs.getInt("anio_nac");
                 int edad = rs.getInt("edad");
                 String nacionalidad = rs.getString("nacionalidad");
-                String pais_residencia = rs.getString("pais_residencia");
+                String pais_residencia = rs.getString("pais_res");
                 String clase_migratoria = rs.getString("clase_migratoria");
                 
                 int id = rs.getInt("id");
@@ -126,7 +128,7 @@ public class FXMLEmpleadoController implements Initializable {
                 Date fecha_regreso = rs.getDate("fecha_regreso");
                 String estado = rs.getString("estado");
 
-                datos.add(new Registro(new Migrante(cedula,nombre,sexo,anio_nac,edad,nacionalidad,pais_residencia,clase_migratoria),id,tipo_movilizacion,via_transporte,fecha_registro,tiempo_estadia,fecha_salida,fecha_regreso,pais_dest,estado));
+                datos.add(new Registro(new Migrante(cedula,nombre,sexo,anio_nac,edad,nacionalidad,clase_migratoria),id,tipo_movilizacion,via_transporte,fecha_registro,tiempo_estadia,fecha_salida,fecha_regreso,pais_dest,estado,pais_residencia));
             }
             setDatos();
             
@@ -138,14 +140,14 @@ public class FXMLEmpleadoController implements Initializable {
     
     private void setDatos(){
         col_noreg.setCellValueFactory(new PropertyValueFactory<>("id"));   
-        col_ced.setCellValueFactory(new PropertyValueFactory<>("cedula"));
-        col_nombreap.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        col_sexo.setCellValueFactory(new PropertyValueFactory<>("sexo"));
-        col_anionac.setCellValueFactory(new PropertyValueFactory<>("anio_nac"));
-        col_edad.setCellValueFactory(new PropertyValueFactory<>("edad"));
-        col_nacionalidad.setCellValueFactory(new PropertyValueFactory<>("nacionalidad"));
+        col_ced.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMigrante().getCedula()));
+        col_nombreap.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMigrante().getNombre()));
+        col_sexo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMigrante().getSexo()));
+        col_anionac.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getMigrante().getAnio_nac()).asObject());
+        col_edad.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getMigrante().getEdad()).asObject());
+        col_nacionalidad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMigrante().getNacionalidad()));
         col_paisresid.setCellValueFactory(new PropertyValueFactory<>("pais_residencia"));
-        col_clasemig.setCellValueFactory(new PropertyValueFactory<>("clase_migratoria"));
+        col_clasemig.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMigrante().getClase_migratoria()));
         col_tipomov.setCellValueFactory(new PropertyValueFactory<>("tipo_movilizacion"));
         col_viatrans.setCellValueFactory(new PropertyValueFactory<>("via_transporte"));
         col_paisdest.setCellValueFactory(new PropertyValueFactory<>("pais_dest"));
@@ -174,6 +176,7 @@ public class FXMLEmpleadoController implements Initializable {
 
     @FXML
     private void modificarReg(MouseEvent event) throws IOException {
+        FXMLModRegistroController.regiMod=(Registro) table_regi_mig.getSelectionModel().getSelectedItem();
         FXMLModRegistroController.nuevo=false;
         Parent rootGEmpleados = FXMLLoader.load(getClass().getResource("/interfazempleado/FXMLModRegistro.fxml"));
         ventanita.setScene(new Scene(rootGEmpleados));

@@ -18,17 +18,16 @@ public class Migrante {
     private int anio_nac;
     private int edad;
     private String nacionalidad;
-    private String pais_residencia;
+
     private String clase_migratoria;
 
-    public Migrante(String cedula,String nombre, String sexo, int anio_nac, int edad, String nacionalidad, String pais_res, String clase_mig) {
+    public Migrante(String cedula,String nombre, String sexo, int anio_nac, int edad, String nacionalidad, String clase_mig) {
         this.cedula = cedula;
         this.nombre=nombre;
         this.sexo = sexo;
         this.anio_nac = anio_nac;
         this.edad = edad;
         this.nacionalidad = nacionalidad;
-        this.pais_residencia = pais_res;
         this.clase_migratoria = clase_mig;
     }
 
@@ -71,9 +70,6 @@ public class Migrante {
     }
  
 
-    public String getPais_residencia() {
-        return pais_residencia;
-    }
 
     public int getEdad() {
         return edad;
@@ -100,9 +96,6 @@ public class Migrante {
         this.nacionalidad = nacionalidad;
     }
 
-    public void setPais_residencia(String pais_res) {
-        this.pais_residencia = pais_res;
-    }
 
     @Override
     public int hashCode() {
@@ -121,6 +114,11 @@ public class Migrante {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Migrante{" + "cedula=" + cedula + ", nombre=" + nombre + ", sexo=" + sexo + ", anio_nac=" + anio_nac + ", edad=" + edad + ", nacionalidad=" + nacionalidad  + ", clase_migratoria=" + clase_migratoria + '}';
     }
     
     

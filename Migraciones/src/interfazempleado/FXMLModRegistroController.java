@@ -115,13 +115,14 @@ public class FXMLModRegistroController implements Initializable {
     }    
     
     public void autollenarDatos(){
+        System.out.println(regiMod);
         txt_id.setText(regiMod.getMigrante().getCedula());
         txt_nombre.setText(regiMod.getMigrante().getNombre());
         txt_sexo.setText(regiMod.getMigrante().getSexo());
         txt_anionac.setText(String.valueOf(regiMod.getMigrante().getAnio_nac()));
         txt_edad.setText(String.valueOf(regiMod.getMigrante().getEdad()));
         txt_nacionalid.setText(regiMod.getMigrante().getNacionalidad());
-        txt_paisres.setText(regiMod.getMigrante().getPais_residencia());
+        txt_paisres.setText(regiMod.getPais_residencia());
         txt_clasemig.setText(regiMod.getMigrante().getClase_migratoria());
     }
 
@@ -132,16 +133,16 @@ public class FXMLModRegistroController implements Initializable {
         Date date = new Date();
         String fecha = dateFormat.format(date);  
         if(nuevo){
-            String queryMig = "INSERT INTO migrante values ( "+"\""+txt_id.getText()+"\",\""+txt_nombre.getText()+"\",\""+txt_sexo.getText()+"\","+txt_anionac.getText()+","+txt_edad.getText()+",\""+txt_nacionalid.getText()+"\",\""+txt_paisres.getText()+"\",\""+txt_clasemig.getText()+"\""+");";
+            String queryMig = "INSERT INTO migrante values ( "+"\""+txt_id.getText()+"\",\""+txt_nombre.getText()+"\",\""+txt_sexo.getText()+"\","+txt_anionac.getText()+","+txt_edad.getText()+",\""+txt_nacionalid.getText()+"\",\""+txt_clasemig.getText()+"\""+");";
             System.out.println(queryMig);      
-            String queryReg = "INSERT INTO REGISTRO (fecha_registro,migrante,tipo_movilizacion,via_transporte,pais_dest,tiempo_estadia,fecha_salida,fecha_regreso) values ("+"\""+fecha+"\",\""+txt_id.getText()+"\",\""+cb_tipomov.getValue()+"\",\""+txt_viatrans.getText()+"\",\""+txt_destino.getText()+"\",\""+txt_tiempesta.getText()+"\",\""+fechasalida.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+fecharegreso.getValue().format(DateTimeFormatter.ISO_DATE)+"\""+");";
+            String queryReg = "INSERT INTO REGISTRO (fecha_registro,migrante,tipo_movilizacion,via_transporte,pais_dest,tiempo_estadia,fecha_salida,fecha_regreso,pais_res) values ("+"\""+fecha+"\",\""+txt_id.getText()+"\",\""+cb_tipomov.getValue()+"\",\""+txt_viatrans.getText()+"\",\""+txt_destino.getText()+"\",\""+txt_tiempesta.getText()+"\",\""+fechasalida.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+fecharegreso.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+ txt_paisres.getText()+"\");";
             System.out.println(queryReg);
             PreparedStatement pst = bd.prepareStatement(queryReg);
             PreparedStatement pst1 = bd.prepareStatement(queryMig);
             pst1.execute();
             pst.execute();
         } else {
-            String queryReg = "INSERT INTO REGISTRO (fecha_registro,migrante,tipo_movilizacion,via_transporte,pais_dest,tiempo_estadia,fecha_salida,fecha_regreso) values ("+"\""+fecha+"\",\""+txt_id.getText()+"\",\""+cb_tipomov.getValue()+"\",\""+txt_viatrans.getText()+"\",\""+txt_destino.getText()+"\",\""+txt_tiempesta.getText()+"\",\""+fechasalida.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+fecharegreso.getValue().format(DateTimeFormatter.ISO_DATE)+"\""+");";
+            String queryReg = "INSERT INTO REGISTRO (fecha_registro,migrante,tipo_movilizacion,via_transporte,pais_dest,tiempo_estadia,fecha_salida,fecha_regreso,pais_res) values ("+"\""+fecha+"\",\""+txt_id.getText()+"\",\""+cb_tipomov.getValue()+"\",\""+txt_viatrans.getText()+"\",\""+txt_destino.getText()+"\",\""+txt_tiempesta.getText()+"\",\""+fechasalida.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+fecharegreso.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+ txt_paisres.getText()+"\");";
             System.out.println(queryReg);
             PreparedStatement pst = bd.prepareStatement(queryReg);
             pst.execute();

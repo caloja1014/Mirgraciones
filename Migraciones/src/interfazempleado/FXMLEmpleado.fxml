@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="view_migrantes" prefHeight="761.0" prefWidth="1282.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazempleado.FXMLEmpleadoController">
+<AnchorPane id="AnchorPane" fx:id="view_migrantes" prefHeight="761.0" prefWidth="1282.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazempleado.FXMLEmpleadoController">
    <children>
       <Label fx:id="lbl_titulo" layoutX="494.0" layoutY="39.0" prefHeight="90.0" prefWidth="347.0" text="REGISTRO DE MIGRANTES" textAlignment="CENTER">
          <font>
@@ -24,7 +24,7 @@
       <TableView fx:id="table_regi_mig" layoutX="18.0" layoutY="211.0" prefHeight="430.0" prefWidth="1244.0">
          <columns>
             <TableColumn fx:id="col_noreg" prefWidth="34.0" text="No" />
-            <TableColumn fx:id="col_ced" prefWidth="84.99996948242188" text="Cedula" />
+            <TableColumn fx:id="col_ced" prefWidth="84.99996948242188" text="cedula" />
             <TableColumn fx:id="col_nombreap" prefWidth="113.00003051757812" text="Nombre y Apellido" />
             <TableColumn fx:id="col_sexo" prefWidth="45.0" text="Sexo" />
             <TableColumn fx:id="col_anionac" prefWidth="78.0" text="Año de nac" />

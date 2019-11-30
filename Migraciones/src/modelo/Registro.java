@@ -23,8 +23,9 @@ public class Registro implements Serializable{
     private Date fecha_salida;
     private Date fecha_regreso;
     private String estado;
+    private String pais_residencia;
 
-    public Registro(Migrante migrante, int id, String tipo_movilizacion, String via_transporte, Date fecha_registro, String tiempo_estadia, Date fecha_salida, Date fecha_regreso,String pais_dest, String estado) {
+    public Registro(Migrante migrante, int id, String tipo_movilizacion, String via_transporte, Date fecha_registro, String tiempo_estadia, Date fecha_salida, Date fecha_regreso,String pais_dest, String estado,String pais_residencia) {
         this.migrante = migrante;
         this.id = id;
         this.tipo_movilizacion = tipo_movilizacion;
@@ -35,6 +36,7 @@ public class Registro implements Serializable{
         this.fecha_regreso = fecha_regreso;
         this.pais_dest=pais_dest;
         this.estado = estado;
+        this.pais_residencia = pais_residencia ;
     }
 
     public Migrante getMigrante() {
@@ -107,6 +109,22 @@ public class Registro implements Serializable{
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getPais_dest() {
+        return pais_dest;
+    }
+
+    public void setPais_dest(String pais_dest) {
+        this.pais_dest = pais_dest;
+    }
+
+    public String getPais_residencia() {
+        return pais_residencia;
+    }
+
+    public void setPais_residencia(String pais_residencia) {
+        this.pais_residencia = pais_residencia;
     }
 
 
