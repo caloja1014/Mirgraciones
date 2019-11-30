@@ -15,27 +15,21 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.Map;
 import java.util.PriorityQueue;
-import java.util.Queue;
 import java.util.ResourceBundle;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -45,8 +39,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import modelo.AgenciaMigratoria;
 import modelo.Puesto;
@@ -66,7 +58,7 @@ public class FXMLTurnosController implements Initializable {
     @FXML
     private Pane publicidad;
     @FXML
-    private static GridPane turnoPuesto;
+    private GridPane turnoPuesto;
     private static List<String> listaPublicidad;
     @FXML
     private ImageView publicidadIV;
@@ -182,7 +174,7 @@ public class FXMLTurnosController implements Initializable {
                 Thread.sleep(1000);
                 Platform.runLater(() -> {
                     llenarPuestos();
-                     actualizacionTickets();
+                    actualizacionTickets();
                 });
                 }
 
@@ -213,7 +205,7 @@ public class FXMLTurnosController implements Initializable {
         loop = false;
     }
     
-    public static void actualizarPuesto(Integer pos){
+    public static  void actualizarPuesto(Integer pos){
         Ticket t =turnosEspera.poll();
         Text puesto=puestosTurnos.get(pos);
         puesto.setText(t.getId());
@@ -221,7 +213,7 @@ public class FXMLTurnosController implements Initializable {
         turnosEspera.offer(t2);
     }
         
-    public static void desHabilitarPuesto(int idP){
+    public  void desHabilitarPuesto(int idP){
        Text t=puestosTurnos.get(idP);
        t.setText("DESHABILITADO");
        t.setFont(new Font(15));
@@ -230,7 +222,7 @@ public class FXMLTurnosController implements Initializable {
        t2.setFill(Color.RED);
        
     }
-    public static void HabilitarPuesto(int idP){
+    public  void HabilitarPuesto(int idP){
         Text t=puestosTurnos.get(idP);
        t.setText("");
        t.setFont(new Font(20));
@@ -240,7 +232,7 @@ public class FXMLTurnosController implements Initializable {
        actualizarPuesto(idP);
     }
     
-    public static void  agregarPuesto(Puesto p){
+    public  void  agregarPuesto(Puesto p){
         Rectangle r = new Rectangle(155,30);
             r.setFill(Color.rgb(102, 102, 255));
             r.setStroke(Color.rgb(102, 102, 255));
@@ -327,6 +319,7 @@ public class FXMLTurnosController implements Initializable {
                     Ticket t= turnosEspera.poll();
                     l.setText(t.getId());
                 } 
+                
             }
         }
     }
