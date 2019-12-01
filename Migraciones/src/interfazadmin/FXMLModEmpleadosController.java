@@ -88,6 +88,9 @@ public class FXMLModEmpleadosController implements Initializable {
     private void reasignarPuesto(MouseEvent event) throws SQLException {
         for (Iterator<Map.Entry<Puesto, Empleado>> it = puestosAsignadosEmpl.entrySet().iterator(); it.hasNext();) {
             Map.Entry<Puesto, Empleado> entry = it.next();
+            System.out.println(entry);
+            System.out.println(entry.getKey());
+            System.out.println(entry.getValue());
             if(entry.getValue().equals(nuevosEmpleados.get(emp_mod))){
                 puestosAsignadosEmpl.remove(entry.getKey());
                 puestosAsignadosEmpl.put(puestosDisponibles.get(puestosDisponibles.size()-1), nuevosEmpleados.get(emp_mod));

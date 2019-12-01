@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -217,11 +218,17 @@ public class FXMLEmpleadoController implements Initializable {
         Parent rootGEmpleados = FXMLLoader.load(getClass().getResource("/interfazempleado/FXMLModRegistro.fxml"));
         ventanita.setScene(new Scene(rootGEmpleados));
         ventanita.show();
-        new Thread(() -> {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                        new Thread(() -> {
             while(ventanita.isShowing()){
             }
             actualizar();
         }).start();
+            }
+        });
+
         
         
     }
@@ -250,6 +257,9 @@ public class FXMLEmpleadoController implements Initializable {
             actualizar();
     }
     private void actualizar(){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
         datos.clear();
         llenarTabla();
          ObservableList<Puesto> items = FXCollections.observableArrayList();
@@ -258,10 +268,19 @@ public class FXMLEmpleadoController implements Initializable {
         }
         puestosDisponibles.setItems(items);
         System.out.println("actualizar");
+            }
+        });
+
     }
 
     @FXML
     private void clicar(ActionEvent event) {
-        i=puestosDisponibles.getValue().getId();
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                 i=puestosDisponibles.getValue().getId();
+            }
+        });
+       
     }
 }

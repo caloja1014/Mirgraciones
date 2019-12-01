@@ -43,6 +43,7 @@ import javafx.util.Duration;
 import modelo.AgenciaMigratoria;
 import modelo.Puesto;
 import modelo.Ticket;
+import static sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl.ThreadStateMap.Byte0.runnable;
 
 
 
@@ -77,7 +78,7 @@ public class FXMLTurnosController implements Initializable {
     @FXML
     private Label label6;
     private static ArrayList<Label> labelsTurnosEspera;
-    private static final PriorityQueue<Ticket> tickets=AgenciaMigratoria.turnos;
+    private static final PriorityQueue<Ticket> tickets= AgenciaMigratoria.turnos;
     private static PriorityQueue<Ticket> turnosEspera=new PriorityQueue<>((Ticket t1, Ticket t2) -> (t2.getPrioridad()-t1.getPrioridad()));
     private static  final HashMap<Integer,Text>puestosTurnos=new HashMap<>();
     private static final HashMap<Integer,Text> puestosLabels = new HashMap<>();
@@ -206,11 +207,17 @@ public class FXMLTurnosController implements Initializable {
     }
     
     public static  void actualizarPuesto(Integer pos){
-        Ticket t =turnosEspera.poll();
-        Text puesto=puestosTurnos.get(pos);
-        puesto.setText(t.getId());
-        Ticket t2=tickets.poll();
-        turnosEspera.offer(t2);
+                Ticket t =turnosEspera.poll();
+                Text puesto=puestosTurnos.get(pos);
+    Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        puesto.setText(t.getId());
+                    }
+                });
+                Ticket t2=tickets.poll();
+                turnosEspera.offer(t2);
+
     }
         
     public  void desHabilitarPuesto(int idP){
@@ -280,7 +287,7 @@ public class FXMLTurnosController implements Initializable {
         turnoPuesto.add(stack4, 1, 0);
         turnoPuesto.setHgap(0);
         turnoPuesto.setVgap(1);
-        Iterator<Puesto> it = AgenciaMigratoria.puestosAsignadosEmpl.keySet().iterator();
+        Iterator<Puesto> it = AgenciaMigratoria.puestosDisponibles.iterator();
         while(it.hasNext()) {
             Puesto p = it.next();
             Rectangle r = new Rectangle(155,30);
