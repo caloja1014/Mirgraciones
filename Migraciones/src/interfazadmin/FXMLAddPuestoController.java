@@ -5,6 +5,7 @@
  */
 package interfazadmin;
 
+import interfazturnos.FXMLTurnosController;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -26,6 +27,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import static migraciones.Migraciones.bd;
+import static migraciones.Migraciones.controller;
 import static migraciones.Migraciones.stLogin;
 import static migraciones.Migraciones.stPuesto;
 import static modelo.AgenciaMigratoria.puestosDisponibles;
@@ -68,6 +70,7 @@ public class FXMLAddPuestoController implements Initializable {
         actualizarPane();
         Puesto nuevo = new Puesto("libre");
         puestoSinEmpleado.add(nuevo);
+        controller.agregarPuesto(nuevo);
         
     }
 

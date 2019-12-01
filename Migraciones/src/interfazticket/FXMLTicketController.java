@@ -70,6 +70,7 @@ public class FXMLTicketController implements Initializable {
                 
             }catch (InterruptedException ex) {
                 Logger.getLogger(FXMLTicketController.class.getName()).log(Level.SEVERE, null, ex);
+                Thread.currentThread().interrupt();
             }
         }).start();
     }

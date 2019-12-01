@@ -118,6 +118,7 @@ public class FXMLAddEmpleadosController implements Initializable {
                 
             }catch (InterruptedException ex) {
                 System.out.println(ex);
+                Thread.currentThread().interrupt();
             }
         }).start();
     }
@@ -140,6 +141,7 @@ public class FXMLAddEmpleadosController implements Initializable {
                 
             }catch (InterruptedException ex) {
                 System.out.println(ex);
+                Thread.currentThread().interrupt();
             }
         }).start();
     }
