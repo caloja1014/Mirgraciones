@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="view_nuevoemp" prefHeight="307.0" prefWidth="395.0" style="-fx-background-color: #C0D6FF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazadmin.FXMLFormEmpleadosController">
+<AnchorPane id="AnchorPane" fx:id="view_nuevoemp" prefHeight="343.0" prefWidth="395.0" style="-fx-background-color: #C0D6FF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazadmin.FXMLFormEmpleadosController">
    <children>
       <Label fx:id="lbl_titulo" layoutX="91.0" layoutY="37.0" text="Nuevo Empleado">
          <font>
@@ -16,17 +16,17 @@
       </Label>
       <Label fx:id="lbl_nombre" layoutX="30.0" layoutY="103.0" prefHeight="45.0" prefWidth="131.0" text="Nombre y Apellido" wrapText="true" />
       <Label fx:id="lbl_id" layoutX="26.0" layoutY="167.0" prefHeight="45.0" prefWidth="138.0" text="Cedula de Identidad" wrapText="true" />
-      <Label fx:id="lbl_puesto" layoutX="30.0" layoutY="218.0" prefHeight="67.0" prefWidth="131.0" text="Puesto de trabajo asignado" wrapText="true" />
+      <Label fx:id="lbl_puesto" layoutX="77.0" layoutY="279.0" prefHeight="58.0" prefWidth="100.0" text="Asignar puesto trabajo" textAlignment="CENTER" wrapText="true" />
       <TextField fx:id="txt_nombre" layoutX="180.0" layoutY="110.0" prefHeight="31.0" prefWidth="193.0" />
       <TextField fx:id="txt_id" layoutX="180.0" layoutY="174.0" prefHeight="31.0" prefWidth="193.0" />
-      <TextField fx:id="txt_puesto" layoutX="180.0" layoutY="229.0" prefHeight="45.0" prefWidth="56.0">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </TextField>
-      <ImageView fx:id="bt_agregar" fitHeight="67.0" fitWidth="71.0" layoutX="277.0" layoutY="222.0" onMouseClicked="#nuevoEmpleado" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_agregar" fitHeight="67.0" fitWidth="71.0" layoutX="252.0" layoutY="227.0" onMouseClicked="#nuevoEmpleado" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/agregar.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bt_puestoAl" fitHeight="82.0" fitWidth="88.0" layoutX="81.0" layoutY="219.0" onMouseClicked="#asignarPuesto" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/aleatorio.png" />
          </image>
       </ImageView>
    </children>

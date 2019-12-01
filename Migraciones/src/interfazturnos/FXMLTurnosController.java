@@ -280,7 +280,9 @@ public class FXMLTurnosController implements Initializable {
         turnoPuesto.add(stack4, 1, 0);
         turnoPuesto.setHgap(0);
         turnoPuesto.setVgap(1);
-        for (Puesto p : AgenciaMigratoria.puestosDisponibles){
+        Iterator<Puesto> it = AgenciaMigratoria.puestosAsignadosEmpl.keySet().iterator();
+        while(it.hasNext()) {
+            Puesto p = it.next();
             Rectangle r = new Rectangle(155,30);
             r.setFill(Color.rgb(102, 102, 255));
             r.setStroke(Color.rgb(102, 102, 255));

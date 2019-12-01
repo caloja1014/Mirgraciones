@@ -87,10 +87,8 @@ public class FXMLAddPuestoController implements Initializable {
             while (rs.next()){
                 VBox caja = new VBox();
                 int id = rs.getInt("id");
-                String estado = rs.getString("estado");
                 Label nombre = new Label("Puesto "+Integer.toString(id));
-                Label lbestado = new Label(estado);
-                caja.getChildren().addAll(nombre,lbestado);
+                caja.getChildren().addAll(nombre);
                 caja.alignmentProperty();
                 caja.setPadding(new Insets(5,5,5,5));
                 pane_puestos.getChildren().add(caja);

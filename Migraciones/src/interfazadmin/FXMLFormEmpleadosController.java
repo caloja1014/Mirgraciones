@@ -6,6 +6,8 @@
 package interfazadmin;
 
 import static interfazadmin.FXMLAddEmpleadosController.datos;
+import static interfazadmin.FXMLModEmpleadosController.emp_mod;
+import static interfazadmin.FXMLModEmpleadosController.nuevosEmpleados;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -46,12 +48,13 @@ public class FXMLFormEmpleadosController implements Initializable {
     private TextField txt_nombre;
     @FXML
     private TextField txt_id;
-    @FXML
     private TextField txt_puesto;
     @FXML
     private ImageView bt_agregar;
     
     public static HashMap<String,Empleado> nuevosEmpleados=empleados;   
+    @FXML
+    private ImageView bt_puestoAl;
     
 
     /**
@@ -71,14 +74,14 @@ public class FXMLFormEmpleadosController implements Initializable {
         pst.execute();
         Empleado nuevo= new Empleado (txt_nombre.getText(), txt_id.getText(), "activo");
         nuevosEmpleados.put(txt_id.getText(), nuevo);
-        if(!txt_puesto.getText().isEmpty()) {            
-            puestosAsignadosEmpl.put(puestosDisponibles.get(Integer.parseInt(txt_puesto.getText())), nuevo) ;
-            String query1 = "INSERT INTO E_P_R (empleado, puesto) values ( "+"\""+txt_id.getText()+"\",\""+puestosDisponibles.get(Integer.parseInt(txt_puesto.getText())).getId()+"\");";
-            System.out.println(query1);
-            PreparedStatement pst1 = bd.prepareStatement(query1);
-            pst1.execute();
-        }
         ventanita.close();
+    }
+
+    @FXML
+    private void asignarPuesto(MouseEvent event) throws SQLException {
+        puestosAsignadosEmpl.put(puestosDisponibles.get(puestosDisponibles.size()-1), nuevosEmpleados.get(emp_mod)) ;
+        puestosDisponibles.remove(puestosDisponibles.size()-1);
+        System.out.println(puestosAsignadosEmpl);
     }
     
 }
