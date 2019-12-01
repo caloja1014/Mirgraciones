@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#loginConEnter" prefHeight="400.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazlogin.FXMLLoginController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#loginConEnter" prefHeight="400.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #C0D6FF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazlogin.FXMLLoginController">
    <children>
       <Label alignment="CENTER" contentDisplay="TOP" prefHeight="99.0" prefWidth="815.0" text="LOGIN">
          <font>
@@ -29,7 +29,7 @@
         </rowConstraints>
          <children>
             <Label text="Usuario:  " />
-            <TextField fx:id="txtFieldUser" prefHeight="26.0" prefWidth="232.0" GridPane.columnIndex="1">
+            <TextField fx:id="txtFieldUser" prefHeight="31.0" prefWidth="253.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin>

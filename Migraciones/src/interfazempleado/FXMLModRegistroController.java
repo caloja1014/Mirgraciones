@@ -22,12 +22,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static migraciones.Migraciones.bd;
 import static migraciones.Migraciones.ventanita;
-import modelo.Puesto;
 import modelo.Registro;
 import modelo.TipoMov;
 
@@ -103,36 +101,66 @@ public class FXMLModRegistroController implements Initializable {
     
     protected static Registro regiMod;
     
-    protected static boolean nuevo;
+    protected static String modo;
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         llenarTiposMov();
-        if(!nuevo){ autollenarDatos();}
+        switch (modo) {
+            case "nuevoR":
+                autollenarDatosMigrante();
+                bloquearDatosPersonales();
+                break;
+            case "nuevoM":
+                break;
+            case "modificarR":
+                autollenarDatosMigrante();
+                autollenarDatosRegistro();
+                bloquearDatosPersonales();
+                break;
+            default:
+                break;
+        }
     }    
     
-    public void autollenarDatos(){
-        System.out.println(regiMod);
+    public void bloquearDatosPersonales(){
+        txt_id.setDisable(true);
+        txt_nombre.setDisable(true);
+        txt_sexo.setDisable(true);
+        txt_anionac.setDisable(true);
+        txt_edad.setDisable(true);
+        txt_nacionalid.setDisable(true);
+        txt_clasemig.setDisable(true);
+    }
+    
+    public void autollenarDatosMigrante(){
         txt_id.setText(regiMod.getMigrante().getCedula());
         txt_nombre.setText(regiMod.getMigrante().getNombre());
         txt_sexo.setText(regiMod.getMigrante().getSexo());
         txt_anionac.setText(String.valueOf(regiMod.getMigrante().getAnio_nac()));
         txt_edad.setText(String.valueOf(regiMod.getMigrante().getEdad()));
         txt_nacionalid.setText(regiMod.getMigrante().getNacionalidad());
-        txt_paisres.setText(regiMod.getPais_residencia());
         txt_clasemig.setText(regiMod.getMigrante().getClase_migratoria());
     }
-
+    
+    public void autollenarDatosRegistro(){
+        txt_paisres.setText(regiMod.getPais_residencia());
+        txt_viatrans.setText(regiMod.getPais_residencia());
+        txt_destino.setText(regiMod.getPais_dest());
+        txt_tiempesta.setText(regiMod.getTiempo_estadia());
+    }
 
     @FXML
     private void aggRegi(MouseEvent event) throws SQLException {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         String fecha = dateFormat.format(date);  
-        if(nuevo){
+        if(modo.equalsIgnoreCase("nuevoM")){
             String queryMig = "INSERT INTO migrante values ( "+"\""+txt_id.getText()+"\",\""+txt_nombre.getText()+"\",\""+txt_sexo.getText()+"\","+txt_anionac.getText()+","+txt_edad.getText()+",\""+txt_nacionalid.getText()+"\",\""+txt_clasemig.getText()+"\""+");";
             System.out.println(queryMig);      
             String queryReg = "INSERT INTO REGISTRO (fecha_registro,migrante,tipo_movilizacion,via_transporte,pais_dest,tiempo_estadia,fecha_salida,fecha_regreso,pais_res) values ("+"\""+fecha+"\",\""+txt_id.getText()+"\",\""+cb_tipomov.getValue()+"\",\""+txt_viatrans.getText()+"\",\""+txt_destino.getText()+"\",\""+txt_tiempesta.getText()+"\",\""+fechasalida.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+fecharegreso.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+ txt_paisres.getText()+"\");";
@@ -141,7 +169,7 @@ public class FXMLModRegistroController implements Initializable {
             PreparedStatement pst1 = bd.prepareStatement(queryMig);
             pst1.execute();
             pst.execute();
-        } else {
+        } else if(modo.equalsIgnoreCase("nuevoR")) {
             String queryReg = "INSERT INTO REGISTRO (fecha_registro,migrante,tipo_movilizacion,via_transporte,pais_dest,tiempo_estadia,fecha_salida,fecha_regreso,pais_res) values ("+"\""+fecha+"\",\""+txt_id.getText()+"\",\""+cb_tipomov.getValue()+"\",\""+txt_viatrans.getText()+"\",\""+txt_destino.getText()+"\",\""+txt_tiempesta.getText()+"\",\""+fechasalida.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+fecharegreso.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+ txt_paisres.getText()+"\");";
             System.out.println(queryReg);
             PreparedStatement pst = bd.prepareStatement(queryReg);
@@ -155,8 +183,5 @@ public class FXMLModRegistroController implements Initializable {
         tipos.add(TipoMov.Entrada);
         tipos.add(TipoMov.Salida);
         cb_tipomov.setItems(tipos);
-    }
-    
-    
-   
+    }   
 }

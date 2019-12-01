@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="view_empleados" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazadmin.FXMLAddEmpleadosController">
+<AnchorPane id="AnchorPane" fx:id="view_empleados" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #C0D6FF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazadmin.FXMLAddEmpleadosController">
    <children>
       <Label fx:id="lbl_titulo" layoutX="134.0" layoutY="33.0" prefHeight="90.0" prefWidth="339.0" text="GESTOR DE EMPLEADOS" textAlignment="CENTER">
          <font>

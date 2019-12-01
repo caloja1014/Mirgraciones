@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="view_editemp" prefHeight="307.0" prefWidth="379.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazadmin.FXMLModEmpleadosController">
+<AnchorPane id="AnchorPane" fx:id="view_editemp" prefHeight="307.0" prefWidth="379.0" style="-fx-background-color: #C0D6FF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazadmin.FXMLModEmpleadosController">
    <children>
       <Label fx:id="lbl_nombre" layoutX="114.0" layoutY="33.0" prefHeight="40.0" prefWidth="152.0" text="Informacion">
          <font>

@@ -162,12 +162,48 @@ public class FXMLEmpleadoController implements Initializable {
 
     @FXML
     private void buscarMig(MouseEvent event) throws IOException {
-        
+       datos.removeAll(datos);
+       try (Statement st = bd.createStatement()) {
+            String query = "SELECT * FROM migrante m join registro r on (m.cedula=r.migrante) where estado =\"disponible\" and m.cedula =\""+txt_cedula.getText()+"\"";
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()){
+                String cedula = rs.getString("cedula");
+                String nombre = rs.getString("nombre");
+                String sexo = rs.getString("sexo");
+                int anio_nac = rs.getInt("anio_nac");
+                int edad = rs.getInt("edad");
+                String nacionalidad = rs.getString("nacionalidad");
+                String pais_residencia = rs.getString("pais_res");
+                String clase_migratoria = rs.getString("clase_migratoria");
+                
+                int id = rs.getInt("id");
+                String tipo_movilizacion = rs.getString("tipo_movilizacion");
+                String via_transporte = rs.getString("via_transporte");
+                String pais_dest = rs.getString("pais_dest");
+                String tiempo_estadia = rs.getString("tiempo_estadia");
+                Date fecha_registro = rs.getDate("fecha_salida");
+                Date fecha_salida = rs.getDate("fecha_salida");
+                Date fecha_regreso = rs.getDate("fecha_regreso");
+                String estado = rs.getString("estado");
+
+                datos.add(new Registro(new Migrante(cedula,nombre,sexo,anio_nac,edad,nacionalidad,clase_migratoria),id,tipo_movilizacion,via_transporte,fecha_registro,tiempo_estadia,fecha_salida,fecha_regreso,pais_dest,estado,pais_residencia));
+            }
+            setDatos();
+            
+        } catch (Exception e) {
+          System.err.println("Error al cargar los datos! "+e);
+        } 
     }
 
     @FXML
     private void addReg(MouseEvent event) throws IOException {
-        FXMLModRegistroController.nuevo=true;
+        FXMLModRegistroController.regiMod=(Registro) table_regi_mig.getSelectionModel().getSelectedItem();
+        if(table_regi_mig.getSelectionModel().getSelectedItem()!=null){
+            FXMLModRegistroController.modo="nuevoR";
+        } else {
+            FXMLModRegistroController.modo="nuevoM";
+        }
         Parent rootGEmpleados = FXMLLoader.load(getClass().getResource("/interfazempleado/FXMLModRegistro.fxml"));
         ventanita.setScene(new Scene(rootGEmpleados));
         ventanita.show();
@@ -176,8 +212,8 @@ public class FXMLEmpleadoController implements Initializable {
 
     @FXML
     private void modificarReg(MouseEvent event) throws IOException {
+        FXMLModRegistroController.modo="modificarR";
         FXMLModRegistroController.regiMod=(Registro) table_regi_mig.getSelectionModel().getSelectedItem();
-        FXMLModRegistroController.nuevo=false;
         Parent rootGEmpleados = FXMLLoader.load(getClass().getResource("/interfazempleado/FXMLModRegistro.fxml"));
         ventanita.setScene(new Scene(rootGEmpleados));
         ventanita.show();

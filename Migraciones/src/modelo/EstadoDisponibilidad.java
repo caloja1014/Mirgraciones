@@ -9,7 +9,7 @@ package modelo;
  *
  * @author nicoleagila
  */
-public enum  EstadoDipopnibilidad {
+public enum  EstadoDisponibilidad {
     Disponible, Ausente;
     
 }

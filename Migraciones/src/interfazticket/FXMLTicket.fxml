@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazticket.FXMLTicketController">
+<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #C0D6FF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazticket.FXMLTicketController">
    <children>
-      <Label id="labelTurno" fx:id="labelTurno" alignment="CENTER" layoutX="183.0" layoutY="14.0" prefHeight="45.0" prefWidth="239.0" text="OBTEN TU TURNO">
+      <Label id="labelTurno" fx:id="labelTurno" alignment="CENTER" layoutX="183.0" layoutY="31.0" prefHeight="45.0" prefWidth="239.0" text="OBTEN TU TURNO">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label id="labelTipoPersona" fx:id="labelTipoPersona" alignment="CENTER" layoutX="156.0" layoutY="59.0" prefHeight="52.0" prefWidth="292.0" text="Selecciona el tipo de persona">
+      <Label id="labelTipoPersona" fx:id="labelTipoPersona" alignment="CENTER" layoutX="156.0" layoutY="85.0" prefHeight="52.0" prefWidth="292.0" text="Selecciona el tipo de persona">
          <font>
             <Font size="19.0" />
          </font>
@@ -23,17 +23,17 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <ImageView fx:id="discapacitados" fitHeight="155.0" fitWidth="152.0" layoutX="226.0" layoutY="124.0" onMouseClicked="#turnoD" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="discapacitados" fitHeight="155.0" fitWidth="152.0" layoutX="241.0" layoutY="174.0" onMouseClicked="#turnoD" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/discapacitado.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="normal" fitHeight="155.0" fitWidth="80.0" layoutX="475.0" layoutY="122.0" onMouseClicked="#turnoU" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="normal" fitHeight="155.0" fitWidth="80.0" layoutX="475.0" layoutY="167.0" onMouseClicked="#turnoU" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/silueta.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="terceraEdad" fitHeight="152.0" fitWidth="136.0" layoutX="30.0" layoutY="131.0" onMouseClicked="#turnoT" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="terceraEdad" fitHeight="152.0" fitWidth="136.0" layoutX="51.0" layoutY="177.0" onMouseClicked="#turnoT" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/oldman.png" />
          </image>

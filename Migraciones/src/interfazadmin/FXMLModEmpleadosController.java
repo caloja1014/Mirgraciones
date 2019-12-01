@@ -25,7 +25,7 @@ import static modelo.AgenciaMigratoria.empleados;
 import static modelo.AgenciaMigratoria.puestosDisponibles;
 import modelo.Empleado;
 import static modelo.AgenciaMigratoria.puestosAsignadosEmpl;
-import modelo.EstadoDipopnibilidad;
+import modelo.EstadoDisponibilidad;
 
 /**
  * FXML Controller class
@@ -49,7 +49,7 @@ public class FXMLModEmpleadosController implements Initializable {
     @FXML
     private ImageView bt_editar;
     @FXML
-    private ComboBox<EstadoDipopnibilidad> cb_estados;
+    private ComboBox<EstadoDisponibilidad> cb_estados;
     
     public static HashMap<String,Empleado> nuevosEmpleados=empleados;
     
@@ -78,9 +78,9 @@ public class FXMLModEmpleadosController implements Initializable {
     }
     
     private void agregarEstados(){
-        ObservableList<EstadoDipopnibilidad> estados= observableArrayList();
-        estados.add(EstadoDipopnibilidad.Ausente);
-        estados.add(EstadoDipopnibilidad.Disponible);
+        ObservableList<EstadoDisponibilidad> estados= observableArrayList();
+        estados.add(EstadoDisponibilidad.Ausente);
+        estados.add(EstadoDisponibilidad.Disponible);
         cb_estados.setItems(estados);
     }
     

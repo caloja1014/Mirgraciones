@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="view_migrantes" prefHeight="761.0" prefWidth="1282.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazempleado.FXMLEmpleadoController">
+<AnchorPane id="AnchorPane" fx:id="view_migrantes" prefHeight="761.0" prefWidth="1282.0" style="-fx-background-color: #C0D6FF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazempleado.FXMLEmpleadoController">
    <children>
       <Label fx:id="lbl_titulo" layoutX="494.0" layoutY="39.0" prefHeight="90.0" prefWidth="347.0" text="REGISTRO DE MIGRANTES" textAlignment="CENTER">
          <font>
@@ -21,7 +21,7 @@
             <Image url="@../recursos/extran.png" />
          </image>
       </ImageView>
-      <TableView fx:id="table_regi_mig" layoutX="18.0" layoutY="211.0" prefHeight="430.0" prefWidth="1244.0">
+      <TableView fx:id="table_regi_mig" layoutX="18.0" layoutY="216.0" prefHeight="430.0" prefWidth="1244.0" style="-fx-background-color: #F2F6FF;">
          <columns>
             <TableColumn fx:id="col_noreg" prefWidth="34.0" text="No" />
             <TableColumn fx:id="col_ced" prefWidth="84.99996948242188" text="cedula" />
@@ -45,17 +45,17 @@
             <Image url="@../recursos/show.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bt_add" fitHeight="68.0" fitWidth="91.0" layoutX="408.0" layoutY="658.0" onMouseClicked="#addReg" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_add" fitHeight="68.0" fitWidth="91.0" layoutX="408.0" layoutY="662.0" onMouseClicked="#addReg" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/agregar.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bt_edit" fitHeight="101.0" fitWidth="68.0" layoutX="614.0" layoutY="657.0" onMouseClicked="#modificarReg" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_edit" fitHeight="101.0" fitWidth="68.0" layoutX="614.0" layoutY="661.0" onMouseClicked="#modificarReg" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/edita.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bt_delete" fitHeight="75.0" fitWidth="78.0" layoutX="823.0" layoutY="653.0" onMouseClicked="#borrarReg" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bt_delete" fitHeight="75.0" fitWidth="78.0" layoutX="823.0" layoutY="658.0" onMouseClicked="#borrarReg" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/delete.png" />
          </image>

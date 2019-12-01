@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="view_puesto" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazadmin.FXMLAddPuestoController">
+<AnchorPane id="AnchorPane" fx:id="view_puesto" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #C0D6FF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazadmin.FXMLAddPuestoController">
    <children>
       <Label fx:id="lbl_titulo" layoutX="104.0" layoutY="44.0" prefHeight="90.0" prefWidth="359.0" text="GESTOR DE PUESTOS DE ATENCION" textAlignment="CENTER" wrapText="true">
          <font>
@@ -29,6 +29,6 @@
             <Image url="@../recursos/volver.png" />
          </image>
       </ImageView>
-      <FlowPane fx:id="pane_puestos" layoutX="66.0" layoutY="145.0" prefHeight="304.0" prefWidth="415.0" />
+      <FlowPane fx:id="pane_puestos" layoutX="66.0" layoutY="145.0" prefHeight="304.0" prefWidth="415.0" style="-fx-background-color: #F2F6FF;" />
    </children>
 </AnchorPane>
