@@ -164,6 +164,7 @@ public class FXMLTurnosController implements Initializable {
                     }
                 }catch (InterruptedException ex) {
                     Logger.getLogger(FXMLTicketController.class.getName()).log(Level.SEVERE, null, ex);
+                    Thread.currentThread().interrupt();
                 }
             }).start();
     }
@@ -182,6 +183,7 @@ public class FXMLTurnosController implements Initializable {
  
             } catch (InterruptedException ex) {
                 Logger.getLogger(FXMLTurnosController.class.getName()).log(Level.SEVERE, null, ex);
+                Thread.currentThread().interrupt();
             }
         }).start();
   
