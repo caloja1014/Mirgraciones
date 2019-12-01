@@ -116,9 +116,8 @@ public class FXMLEmpleadoController implements Initializable {
     public void llenarTabla(){
         try (Statement st = bd.createStatement()) {
             String query = "SELECT * FROM migrante m join registro r on (m.cedula=r.migrante) where estado =\"disponible\" ";
-            ResultSet rs = st.executeQuery(query);
-
-            while (rs.next()){
+            try(ResultSet rs = st.executeQuery(query)){
+                while (rs.next()){
                 String cedula = rs.getString("cedula");
                 String nombre = rs.getString("nombre");
                 String sexo = rs.getString("sexo");
@@ -140,10 +139,15 @@ public class FXMLEmpleadoController implements Initializable {
 
                 datos.add(new Registro(new Migrante(cedula,nombre,sexo,anio_nac,edad,nacionalidad,clase_migratoria),id,tipo_movilizacion,via_transporte,fecha_registro,tiempo_estadia,fecha_salida,fecha_regreso,pais_dest,estado,pais_residencia));
             }
+            }catch(Exception e){
+                
+            }
+
+            
             setDatos();
             
         } catch (Exception e) {
-          System.err.println("Error al cargar los datos! "+e);
+          System.out.println("Error al cargar los datos! "+e);
         }
         
     }
@@ -175,9 +179,8 @@ public class FXMLEmpleadoController implements Initializable {
        datos.removeAll(datos);
        try (Statement st = bd.createStatement()) {
             String query = "SELECT * FROM migrante m join registro r on (m.cedula=r.migrante) where estado =\"disponible\" and m.cedula =\""+txt_cedula.getText()+"\"";
-            ResultSet rs = st.executeQuery(query);
-
-            while (rs.next()){
+            try(ResultSet rs = st.executeQuery(query)){
+                while (rs.next()){
                 String cedula = rs.getString("cedula");
                 String nombre = rs.getString("nombre");
                 String sexo = rs.getString("sexo");
@@ -201,8 +204,13 @@ public class FXMLEmpleadoController implements Initializable {
             }
             setDatos();
             
+            }catch(Exception e){
+                
+            }
+
+            
         } catch (Exception e) {
-          System.err.println("Error al cargar los datos! "+e);
+          System.out.println("Error al cargar los datos! "+e);
         } 
     }
 

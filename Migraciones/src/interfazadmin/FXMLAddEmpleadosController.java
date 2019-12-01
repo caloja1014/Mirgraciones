@@ -77,21 +77,19 @@ public class FXMLAddEmpleadosController implements Initializable {
     public void llenarTabla(){
         try (Statement st = bd.createStatement()) {
             String query = "SELECT * FROM empleado";
-            ResultSet rs = st.executeQuery(query);
-
-
-
-            while (rs.next()){
+            try(ResultSet rs = st.executeQuery(query)){
+             while (rs.next()){
                 String cedula = rs.getString("cedula");
                 String nombre = rs.getString("nombre");
                 String estado = rs.getString("estado");
 
                 datos.add(new Empleado(nombre,cedula,estado));
             }
-            setDatos();
-            
+            setDatos();   
+            } catch(Exception e){
+            }
         } catch (Exception e) {
-          System.err.println("Error al cargar los datos! "+e);
+          System.out.println("Error al cargar los datos! "+e);
         }
         
     }

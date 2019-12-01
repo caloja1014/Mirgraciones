@@ -29,15 +29,19 @@ public class AgenciaMigratoria {
         
         try (Statement st = bd.createStatement()) {
             String query = "SELECT * FROM empleado";
-            ResultSet rs = st.executeQuery(query);
-            
+            try(ResultSet rs = st.executeQuery(query)){
             while (rs.next()){
                 String cedula = rs.getString("cedula");
                 String nombre = rs.getString("nombre");
                 String estado = rs.getString("estado");
 
                 empleados.put(cedula,new Empleado(nombre,cedula,estado));
+            }    
+            }catch(Exception e){
+                
             }
+            
+            
             
         } catch (Exception e) {
           System.err.println("Error al cargar los datos! "+e);
@@ -45,13 +49,17 @@ public class AgenciaMigratoria {
         
         try (Statement st = bd.createStatement()) {
             String query = "SELECT * FROM puesto";
-            ResultSet rs = st.executeQuery(query);
-
+            try(ResultSet rs = st.executeQuery(query)){
             while (rs.next()){
                 int id = rs.getInt("id");
                 String estado = rs.getString("estado");
                 puestosDisponibles.add(new Puesto(id,estado));
+            }    
+            }catch(Exception e ){
+                
             }
+
+            
             
         } catch (Exception e) {
           System.err.println("Error al cargar los datos! "+e);

@@ -82,9 +82,8 @@ public class FXMLAddPuestoController implements Initializable {
     private void llenarPane(){
         try (Statement st = bd.createStatement()) {
             String query = "SELECT * FROM puesto";
-            ResultSet rs = st.executeQuery(query);
-
-            while (rs.next()){
+            try(ResultSet rs = st.executeQuery(query)){
+                while (rs.next()){
                 VBox caja = new VBox();
                 int id = rs.getInt("id");
                 Label nombre = new Label("Puesto "+Integer.toString(id));
@@ -92,10 +91,13 @@ public class FXMLAddPuestoController implements Initializable {
                 caja.alignmentProperty();
                 caja.setPadding(new Insets(5,5,5,5));
                 pane_puestos.getChildren().add(caja);
-            }
+                }
+            } catch(Exception e){
+                    
+            }  
             
         } catch (Exception e) {
-          System.err.println("Error al cargar los datos! "+e);
+          System.out.println("Error al cargar los datos! "+e);
         }
     }
     

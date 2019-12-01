@@ -71,7 +71,6 @@ public class FXMLFormEmpleadosController implements Initializable {
         String query = "INSERT INTO empleado (cedula,nombre) values ( "+"\""+txt_id.getText()+"\",\""+txt_nombre.getText()+"\");";
         System.out.println(query);
         PreparedStatement pst = bd.prepareStatement(query);
-        pst.execute();
         Empleado nuevo= new Empleado (txt_nombre.getText(), txt_id.getText(), "activo");
         nuevosEmpleados.put(txt_id.getText(), nuevo);
         ventanita.close();

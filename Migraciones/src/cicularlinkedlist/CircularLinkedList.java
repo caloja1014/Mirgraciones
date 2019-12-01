@@ -7,6 +7,7 @@ package cicularlinkedlist;
 
 import java.util.Objects;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 /**
  *
  * @author CLOJA
@@ -320,6 +321,9 @@ public class CircularLinkedList<E> implements List<E> {
 
          @Override
          public E next() {
+             if(!hasNext()){
+                throw new NoSuchElementException();
+                }
              Node<E> tmp=nodo;
              nodo=nodo.getNext();
              return tmp.getData();

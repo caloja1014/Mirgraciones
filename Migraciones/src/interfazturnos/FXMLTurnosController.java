@@ -191,13 +191,17 @@ public class FXMLTurnosController implements Initializable {
         List<String> imagenes = new CircularLinkedList<>();
         
         File file=new File("src/publicidad/imagenes.txt");
-        Scanner sc=new Scanner(file);
+        try(Scanner sc=new Scanner(file)){
         while(sc.hasNextLine()){
             
             String line = "src/publicidad/"+sc.nextLine();
             System.out.println(line);
             imagenes.addLast(line);
+        }    
+        }catch(Exception e){
+            
         }
+        
         return imagenes;
     }
     
