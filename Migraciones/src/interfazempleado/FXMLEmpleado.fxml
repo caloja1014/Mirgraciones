@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="view_migrantes" prefHeight="761.0" prefWidth="1282.0" style="-fx-background-color: #C0D6FF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazempleado.FXMLEmpleadoController">
+<AnchorPane id="AnchorPane" fx:id="view_migrantes" prefHeight="761.0" prefWidth="1282.0" style="-fx-background-color: #C0D6FF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazempleado.FXMLEmpleadoController">
    <children>
       <Label fx:id="lbl_titulo" layoutX="494.0" layoutY="39.0" prefHeight="90.0" prefWidth="347.0" text="REGISTRO DE MIGRANTES" textAlignment="CENTER">
          <font>
@@ -62,5 +63,6 @@
       </ImageView>
       <TextField fx:id="txt_cedula" layoutX="219.0" layoutY="169.0" />
       <Label fx:id="lbl_cedula" layoutX="51.0" layoutY="160.0" prefHeight="45.0" prefWidth="131.0" text="Cedula del Migrante" wrapText="true" />
+      <ComboBox fx:id="puestosDisponibles" layoutX="1112.0" layoutY="170.0" onAction="#clicar" prefWidth="150.0" />
    </children>
 </AnchorPane>

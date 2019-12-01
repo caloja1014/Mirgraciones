@@ -214,6 +214,7 @@ public class FXMLTurnosController implements Initializable {
     }
         
     public  void desHabilitarPuesto(int idP){
+        
        Text t=puestosTurnos.get(idP);
        t.setText("DESHABILITADO");
        t.setFont(new Font(15));

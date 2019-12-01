@@ -32,17 +32,18 @@ public class Migraciones extends Application {
     public static Stage stLogin = new Stage();
     public static Stage ventanita = new Stage();
     public static Connection bd;
-
+    public static FXMLTurnosController controller;
     @Override
     public void start(Stage stage) throws IOException  {
         Conexion cn = new Conexion();
         bd = cn.getConnection();    
         AgenciaMigratoria.cargarListas();
         Parent rootTicket = FXMLLoader.load(getClass().getResource("/interfazticket/FXMLTicket.fxml"));
-        Parent rootTurnos = FXMLLoader.load(getClass().getResource("/interfazturnos/FXMLTurnos.fxml"));
         Parent rootLogin = FXMLLoader.load(getClass().getResource("/interfazlogin/FXMLLogin.fxml"));
         Parent rootEmpleado = FXMLLoader.load(getClass().getResource("/interfazempleado/FXMLEmpleado.fxml"));
-              
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/interfazturnos/FXMLTurnos.fxml"));
+        Parent rootTurnos = (Parent) loader.load();
+        controller=loader.getController();
         Scene scTicket = new Scene(rootTicket);
         Scene scTurnos = new Scene(rootTurnos);
         Scene scLogin = new Scene(rootLogin);

@@ -18,13 +18,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import static javafx.collections.FXCollections.observableArrayList;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -36,9 +39,11 @@ import javafx.scene.layout.AnchorPane;
 import static migraciones.Migraciones.bd;
 import static migraciones.Migraciones.stEmpleado;
 import static migraciones.Migraciones.ventanita;
+import modelo.AgenciaMigratoria;
 import modelo.Migrante;
+import modelo.Puesto;
 import modelo.Registro;
-
+import migraciones.Migraciones;
 /**
  * FXML Controller class
  *
@@ -96,15 +101,18 @@ public class FXMLEmpleadoController implements Initializable {
     private TextField txt_cedula;
     @FXML
     private Label lbl_cedula;
-    
+   public static Integer i;
     protected static ObservableList<Registro> datos = observableArrayList();
+    @FXML
+    private ComboBox<Puesto> puestosDisponibles;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        llenarTabla();
-    }    
+       actualizar();
+    }
+    
     public void llenarTabla(){
         try (Statement st = bd.createStatement()) {
             String query = "SELECT * FROM migrante m join registro r on (m.cedula=r.migrante) where estado =\"disponible\" ";
@@ -244,6 +252,16 @@ public class FXMLEmpleadoController implements Initializable {
     private void actualizar(){
         datos.clear();
         llenarTabla();
+         ObservableList<Puesto> items = FXCollections.observableArrayList();
+        for(Puesto p: AgenciaMigratoria.puestosDisponibles){
+            items.add(p);
+        }
+        puestosDisponibles.setItems(items);
         System.out.println("actualizar");
+    }
+
+    @FXML
+    private void clicar(ActionEvent event) {
+        i=puestosDisponibles.getValue().getId();
     }
 }

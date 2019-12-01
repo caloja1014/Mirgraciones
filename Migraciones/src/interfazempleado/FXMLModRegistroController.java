@@ -5,6 +5,7 @@
  */
 package interfazempleado;
 
+import interfazturnos.FXMLTurnosController;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -28,6 +29,7 @@ import static migraciones.Migraciones.bd;
 import static migraciones.Migraciones.ventanita;
 import modelo.Registro;
 import modelo.TipoMov;
+    import migraciones.Migraciones;
 
 /**
  * FXML Controller class
@@ -103,7 +105,6 @@ public class FXMLModRegistroController implements Initializable {
     
     protected static String modo;
     protected static ObservableList<Registro> datos = FXMLEmpleadoController.datos;
-
     /**
      * Initializes the controller class.
      * @param url
@@ -177,6 +178,7 @@ public class FXMLModRegistroController implements Initializable {
             pst.execute();
         }
         ventanita.close();
+        FXMLTurnosController.actualizarPuesto(FXMLEmpleadoController.i);
     }
     
     public void llenarTiposMov(){
