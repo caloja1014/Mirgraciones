@@ -102,6 +102,7 @@ public class FXMLModRegistroController implements Initializable {
     protected static Registro regiMod;
     
     protected static String modo;
+    protected static ObservableList<Registro> datos = FXMLEmpleadoController.datos;
 
     /**
      * Initializes the controller class.

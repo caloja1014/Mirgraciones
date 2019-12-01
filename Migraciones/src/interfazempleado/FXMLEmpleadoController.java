@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import static javafx.collections.FXCollections.observableArrayList;
@@ -207,6 +209,12 @@ public class FXMLEmpleadoController implements Initializable {
         Parent rootGEmpleados = FXMLLoader.load(getClass().getResource("/interfazempleado/FXMLModRegistro.fxml"));
         ventanita.setScene(new Scene(rootGEmpleados));
         ventanita.show();
+        new Thread(() -> {
+            while(ventanita.isShowing()){
+            }
+            actualizar();
+        }).start();
+        
         
     }
 
@@ -217,6 +225,10 @@ public class FXMLEmpleadoController implements Initializable {
         Parent rootGEmpleados = FXMLLoader.load(getClass().getResource("/interfazempleado/FXMLModRegistro.fxml"));
         ventanita.setScene(new Scene(rootGEmpleados));
         ventanita.show();
+        new Thread(() -> {
+            while(ventanita.isShowing()){}
+            actualizar();
+        }).start();
     }
 
     @FXML
@@ -226,5 +238,12 @@ public class FXMLEmpleadoController implements Initializable {
             System.out.println(query);
             PreparedStatement pst = bd.prepareStatement(query);
             pst.execute();
+            datos.remove(table_regi_mig.getSelectionModel().getSelectedItem());
+            actualizar();
+    }
+    private void actualizar(){
+        datos.clear();
+        llenarTabla();
+        System.out.println("actualizar");
     }
 }
