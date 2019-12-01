@@ -129,7 +129,21 @@ public class FXMLAddEmpleadosController implements Initializable {
         FXMLModEmpleadosController.emp_mod = (String) table_empleados.getSelectionModel().getSelectedItem().getCedula();
         Parent rootMod = FXMLLoader.load(getClass().getResource("/interfazadmin/FXMLModEmpleados.fxml"));
         ventanita.setScene(new Scene(rootMod));
-        ventanita.show();   
+        ventanita.show();  
+        new Thread (() -> {
+            try {
+                while(ventanita.isShowing()){
+                    Thread.sleep(500);
+                }
+                Platform.runLater(() -> {
+                    actualizarDatos();
+                });
+                System.out.println("Refrescar");
+                
+            }catch (InterruptedException ex) {
+                System.out.println(ex);
+            }
+        }).start();
     }
     
     protected void actualizarDatos(){

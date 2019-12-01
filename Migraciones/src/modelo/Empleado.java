@@ -43,4 +43,11 @@ public class Empleado {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    @Override
+    public String toString() {
+        return "Empleado{" + "nombre=" + nombre + ", cedula=" + cedula + ", estado=" + estado + '}';
+    }
+    
+    
 }

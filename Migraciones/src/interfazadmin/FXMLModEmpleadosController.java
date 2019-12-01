@@ -9,6 +9,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.ResourceBundle;
 import static javafx.collections.FXCollections.observableArrayList;
 import javafx.collections.ObservableList;
@@ -21,11 +23,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static migraciones.Migraciones.bd;
+import static migraciones.Migraciones.ventanita;
 import static modelo.AgenciaMigratoria.empleados;
+import static modelo.AgenciaMigratoria.puestosAsignadosEmpl;
 import static modelo.AgenciaMigratoria.puestosDisponibles;
 import modelo.Empleado;
-import static modelo.AgenciaMigratoria.puestosAsignadosEmpl;
 import modelo.EstadoDisponibilidad;
+import modelo.Puesto;
 
 /**
  * FXML Controller class
@@ -43,10 +47,6 @@ public class FXMLModEmpleadosController implements Initializable {
     @FXML
     private Label lbl_estado;
     @FXML
-    private Label lbl_puesto;
-    @FXML
-    private TextField txt_puesto;
-    @FXML
     private ImageView bt_editar;
     @FXML
     private ComboBox<EstadoDisponibilidad> cb_estados;
@@ -54,6 +54,8 @@ public class FXMLModEmpleadosController implements Initializable {
     public static HashMap<String,Empleado> nuevosEmpleados=empleados;
     
     protected static String emp_mod;
+    @FXML
+    private ImageView bt_refresh;
 
     /**
      * Initializes the controller class.
@@ -71,10 +73,8 @@ public class FXMLModEmpleadosController implements Initializable {
             PreparedStatement pst = bd.prepareStatement(query);
             pst.execute();
             nuevosEmpleados.get(emp_mod).setEstado(cb_estados.getValue().name());
-        } if(!txt_puesto.getText().isEmpty()) {
-            puestosAsignadosEmpl.put(puestosDisponibles.get(0),nuevosEmpleados.get(emp_mod));
-            puestosDisponibles.remove(0);
-        }   
+        }
+        ventanita.close();
     }
     
     private void agregarEstados(){
@@ -82,6 +82,19 @@ public class FXMLModEmpleadosController implements Initializable {
         estados.add(EstadoDisponibilidad.Ausente);
         estados.add(EstadoDisponibilidad.Disponible);
         cb_estados.setItems(estados);
+    }
+
+    @FXML
+    private void reasignarPuesto(MouseEvent event) throws SQLException {
+        for (Iterator<Map.Entry<Puesto, Empleado>> it = puestosAsignadosEmpl.entrySet().iterator(); it.hasNext();) {
+            Map.Entry<Puesto, Empleado> entry = it.next();
+            if(entry.getValue().equals(nuevosEmpleados.get(emp_mod))){
+                puestosAsignadosEmpl.remove(entry.getKey());
+                puestosAsignadosEmpl.put(puestosDisponibles.get(puestosDisponibles.size()-1), nuevosEmpleados.get(emp_mod));
+                puestosDisponibles.remove(puestosDisponibles.size()-1);
+                puestosDisponibles.add(entry.getKey());
+            }
+        }
     }
     
 }
