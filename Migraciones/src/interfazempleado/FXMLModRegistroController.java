@@ -27,6 +27,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static migraciones.Migraciones.bd;
 import static migraciones.Migraciones.ventanita;
+import modelo.Migrante;
 import modelo.Puesto;
 import modelo.Registro;
 import modelo.TipoMov;
@@ -104,6 +105,7 @@ public class FXMLModRegistroController implements Initializable {
     protected static Registro regiMod;
     
     protected static boolean nuevo;
+    protected static ObservableList<Registro> datos = FXMLEmpleadoController.datos;
 
     /**
      * Initializes the controller class.
@@ -132,6 +134,7 @@ public class FXMLModRegistroController implements Initializable {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         String fecha = dateFormat.format(date);  
+
         if(nuevo){
             String queryMig = "INSERT INTO migrante values ( "+"\""+txt_id.getText()+"\",\""+txt_nombre.getText()+"\",\""+txt_sexo.getText()+"\","+txt_anionac.getText()+","+txt_edad.getText()+",\""+txt_nacionalid.getText()+"\",\""+txt_clasemig.getText()+"\""+");";
             System.out.println(queryMig);      
@@ -141,6 +144,7 @@ public class FXMLModRegistroController implements Initializable {
             PreparedStatement pst1 = bd.prepareStatement(queryMig);
             pst1.execute();
             pst.execute();
+            
         } else {
             String queryReg = "INSERT INTO REGISTRO (fecha_registro,migrante,tipo_movilizacion,via_transporte,pais_dest,tiempo_estadia,fecha_salida,fecha_regreso,pais_res) values ("+"\""+fecha+"\",\""+txt_id.getText()+"\",\""+cb_tipomov.getValue()+"\",\""+txt_viatrans.getText()+"\",\""+txt_destino.getText()+"\",\""+txt_tiempesta.getText()+"\",\""+fechasalida.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+fecharegreso.getValue().format(DateTimeFormatter.ISO_DATE)+"\",\""+ txt_paisres.getText()+"\");";
             System.out.println(queryReg);
